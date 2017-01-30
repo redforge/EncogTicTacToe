@@ -18,7 +18,7 @@ public class NeuralPlayer {
 
     public int scorePlayer() {
         int n = 0;
-        for (int i=0; i<this.opponents.length; i++) {
+        for (int i=0; i<1; i++) {
             n += this.doIteration(this.opponents[i]);
         }
         return n;
@@ -26,11 +26,13 @@ public class NeuralPlayer {
     public int doIteration(NEATNetwork opponent) {
         TicTacToeGame game = new TicTacToeGame();
         game.initializeGame();
-        for (int i = 0; i<9; i++)
+        for (int i = 0; i<10; i++)
             if (game.winner == -2)
                 game.turn(this.network, opponent);
 
-        game.drawBoard(game.getBoard());
+        //game.drawBoard(game.getBoard());
+        if (game.getWinner()==-2)
+            System.out.println("THING DIDNT FINISH!!!111");
         //System.out.println(game.getWinner());
         return game.winner;
     }

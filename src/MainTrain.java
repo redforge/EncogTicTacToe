@@ -59,58 +59,11 @@ public class MainTrain {
             train.finishTraining();
             //previousBests = append(previousBests, train.getMethod());
 
-            System.out.println("Random Training Complete. \n Starting competitive training... \n\n\n");
+            System.out.println("Random Training Complete");
 
             NEATNetwork network;
             network = (NEATNetwork) train.getCODEC().decode(pop.getBestGenome());
-        }
-
-
-        //Train vs others
-        bestFitness = -100;
-        popSize = 100;
-        //epoch = 1;
-        for (int epoch = 0; epoch < 20; epoch++) {
-            NEATPopulation pop;
-            pop = createPop(popSize); //Create population
-
-            EvolutionaryAlgorithm train; //Create training
-            train = NEATUtil.constructNEATTrainer(pop, new PlayerScore(previousBests));
-
-            OriginalNEATSpeciation speciation = new OriginalNEATSpeciation();
-            train.setSpeciation(speciation);
-
-            //Train to beat
-            for (int i=0; i < 100; i++) {
-                train.iteration();
-            }
-
-            //Check if better
-            if (train.getError() > bestFitness) {
-                System.out.println("Competitive - " + "Epoch #" + epoch  + " Opponents: " + previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
-
-                previousBests = append(previousBests, train.getCODEC().decode(pop.getBestGenome()));
-                bestFitness = (int)train.getError();
-                PlayerScoreRandom testScore = new PlayerScoreRandom();
-                System.out.println(testScore.calculateScore(previousBests[previousBests.length-1]));
-            } else {
-                popSize *= 1.5;
-            }
-
-            train.finishTraining();
-        }
-
-
-
-        //Play v human
-        NEATNetwork network;
-        network = (NEATNetwork) previousBests[previousBests.length-1];
-        while (true) {
-            TicTacToeGame humanGame = new TicTacToeGame();
-            humanGame.initializeGame();
-            while (humanGame.getWinner() == -2) {
-                humanGame.turnHuman(network);
-            }
+            previousBests = append(previousBests, network);
         }
     }
 

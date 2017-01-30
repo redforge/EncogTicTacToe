@@ -30,8 +30,10 @@ public class TicTacToeGame {
             this.doMove(-1, this.getMoveRandom());
 
         //Check if its winning move
-        if (this.isWinning(playerTurn, this.getBoard()))
-            this.winner = playerTurn;
+        if (this.isWinning(1, this.getBoard()))
+            this.winner = 1;
+        if (this.isWinning(2, this.getBoard()))
+            this.winner = 2;
         //Check if its a draw
         if (this.turns >= 8 && this.winner == -2)
             this.winner = 0;
@@ -42,39 +44,48 @@ public class TicTacToeGame {
 
     public void turnHuman(NEATNetwork network) {
         //Do Move
-        if (this.playerTurn == 1)
+        if (this.playerTurn == 1) {
             this.doMove(1, this.getMoveNN(network));
-        else if (this.playerTurn == -1)
+            playerTurn = -1;
+        } else if (this.playerTurn == -1) {
             this.doMove(-1, this.getMoveHuman());
+            playerTurn = 1;
+        }
 
         //Check if its winning move
-        if (this.isWinning(playerTurn, this.getBoard()))
-            this.winner = playerTurn;
+        if (this.isWinning(1, this.getBoard()))
+            this.winner = 1;
+        if (this.isWinning(-1, this.getBoard()))
+            this.winner = -1;
         //Check if its a draw
         if (this.turns >= 8 && this.winner == -2)
             this.winner = 0;
 
         this.drawBoard(this.getBoard());
-
-        this.playerTurn *= -1;
         this.turns++;
     }
 
     public void turn(NEATNetwork network1, NEATNetwork network2) {
         //Do Move
-        if (this.playerTurn == 1)
+        if (this.playerTurn == 1) {
             this.doMove(1, this.getMoveNN(network1));
-        else if (this.playerTurn == -1)
+            this.playerTurn = -1;
+        } else if (this.playerTurn == -1) {
             this.doMove(-1, this.getMoveNN(network2));
+            this.playerTurn = 1;
+        }
 
         //Check if its winning move
-        if (this.isWinning(playerTurn, this.getBoard()))
-            this.winner = playerTurn;
+        if (this.isWinning(1, this.getBoard()))
+            this.winner = 1;
+        if (this.isWinning(-1, this.getBoard()))
+            this.winner = -1;
         //Check if its a draw
-        if (this.turns >= 8 && this.winner == -2)
+        if (this.turns >= 8 && this.winner == -2) {
             this.winner = 0;
+            System.out.println("THIS IS TIE");
+        }
 
-        this.playerTurn *= -1;
         this.turns++;
     }
 
@@ -244,9 +255,9 @@ public class TicTacToeGame {
 
     public void doMove(int player, int i) {
         if (!this.isMoveValid(i)) {
-            //System.out.println("Error: Impossible Move " + i + " Attempted by player " + player);
-            //drawBoard(this.board);
-            this.board[i] = player;
+            System.out.println("Error: Impossible Move " + i + " Attempted by player " + player);
+            drawBoard(this.board);
+            //this.board[i] = player;
             //System.out.println("result");
             //drawBoard(this.board);
         }
