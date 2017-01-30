@@ -22,15 +22,18 @@ public class NeuralPlayerRandom {
     }
 
     public int doIteration() {
-        PickRandomNumberGame game = new PickRandomNumberGame();
+        TicTacToeGame game = new TicTacToeGame();
+
+//        PickRandomNumberGame game = new PickRandomNumberGame();
         game.initializeGame();
 
-        //for(int i=0; i<Math.random()*10; i++)
-            game.turn(this.network);
+        for(int i=0; i<9; i++)
+            if (game.getWinner() == -2)
+                game.turn(this.network);
+
 
         //game.drawBoard();
         //game.drawBoard(game.getBoard());
-        //System.out.println(game.getWinner());
         return game.getWinner();
     }
 }

@@ -30,10 +30,10 @@ public class TicTacToeGame {
             this.doMove(-1, this.getMoveRandom());
 
         //Check if its winning move
+        if (this.isWinning(-1, this.getBoard()))
+            this.winner = -1;
         if (this.isWinning(1, this.getBoard()))
             this.winner = 1;
-        if (this.isWinning(2, this.getBoard()))
-            this.winner = 2;
         //Check if its a draw
         if (this.turns >= 8 && this.winner == -2)
             this.winner = 0;
@@ -169,51 +169,46 @@ public class TicTacToeGame {
 
             isFirstIteration = false;
 
-            //If nothing was found, look for any valid move
-            if(!foundAnything) {
-                System.out.println("Error! Neural network couldn't find a valid move");
-                System.out.println("Finding any valid move...");
-                int i = 0;
-                do {
-                    //Note: indexOfHighestValue is the move that is to be made
-                    indexOfHighestValue = i;
-                    i++;
-                    if (i > numberOfSpaces) {
-                        this.drawBoard(this.getBoard());
-                        System.out.println ("Couldn't find any valid moves...");
-                        indexOfHighestValue = 1;
-                        break;
-                    }
-                } while(!this.isMoveValid(i));
-                break;
-            }
+            //If nothing was found, return first valid move
+            if(!foundAnything)
+                return getMoveFirst();
 
         } while (!this.isMoveValid(indexOfHighestValue));
         return indexOfHighestValue;
     }
 
     public int getMoveRandom() {
-        int i = 0;
-        int iterations = 0;
-        do {
-            iterations++;
-            if (iterations > 20)
-                break;
-
-            i = (int) floor(Math.random()*9);
-        } while(!this.isMoveValid(i));
-        if (iterations < 10)
-            return i;
-        else {
-
-            for (int j = 0; j <= 9; j++) {
-                if (this.isMoveValid(j)){
-                    return j;
-                }
+        int [] validMoves = new int[0];
+        for (int i=0; i < this.board.length; i++) {
+            if (this.isMoveValid(i)) {
+                validMoves = append(validMoves, i);
             }
-            //System.out.println("WHAT");
-            return 1;
         }
+
+        int index;
+        index = (int)(Math.random()*validMoves.length);
+        return validMoves[index];
+    }
+
+    public int getMoveFirst() {
+        int [] validMoves = new int[0];
+        for (int i=0; i < this.board.length; i++) {
+            if (this.isMoveValid(i)) {
+                validMoves = append(validMoves, i);
+            }
+        }
+
+        int index;
+        index = 0;
+        return validMoves[index];
+    }
+
+    private int[] append(int[] prev, int toAdd) {
+        int[] out = new int[prev.length+1];
+        for (int i=0; i<prev.length; i++)
+            out[i] = prev[i];
+        out[prev.length] = toAdd;
+        return out;
     }
 
     public boolean isMoveValid(int position) {
