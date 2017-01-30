@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c4af228-92a0-4aba-b604-1fa546305cb0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PickRandomNumberGame.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/NeuralPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/PlayerScore.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/NeuralPlayer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/PlayerScore.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/MainTrain.class" afterPath="$PROJECT_DIR$/out/production/Genetic TicTacToe/MainTrain.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/NeuralPlayer.class" afterPath="$PROJECT_DIR$/out/production/Genetic TicTacToe/NeuralPlayer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/NeuralPlayerRandom.class" afterPath="$PROJECT_DIR$/out/production/Genetic TicTacToe/NeuralPlayerRandom.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/PlayerScoreRandom.class" afterPath="$PROJECT_DIR$/out/production/Genetic TicTacToe/PlayerScoreRandom.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/TicTacToeGame.class" afterPath="$PROJECT_DIR$/out/production/Genetic TicTacToe/TicTacToeGame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainTrain.java" afterPath="$PROJECT_DIR$/src/MainTrain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuralPlayer.java" afterPath="$PROJECT_DIR$/src/NeuralPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuralPlayerRandom.java" afterPath="$PROJECT_DIR$/src/NeuralPlayerRandom.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlayerScoreRandom.java" afterPath="$PROJECT_DIR$/src/PlayerScoreRandom.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TicTacToeGame.java" afterPath="$PROJECT_DIR$/src/TicTacToeGame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,50 +37,25 @@
       <file leaf-file-name="MainTrain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainTrain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="746">
-              <caret line="61" column="56" lean-forward="false" selection-start-line="61" selection-start-column="56" selection-end-line="61" selection-end-column="56" />
+            <state relative-caret-position="7">
+              <caret line="52" column="34" lean-forward="false" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#trainVsOthers#0;class#MainTrain#0" expanded="false" />
                 <element signature="method#append#0;class#MainTrain#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NeuralPlayer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/NeuralPlayer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="21" column="53" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#1096#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerScore.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PlayerScore.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TicTacToeGame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TicTacToeGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TicTacToeGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="37" column="49" lean-forward="true" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
+            <state relative-caret-position="491">
+              <caret line="259" column="20" lean-forward="false" selection-start-line="259" selection-start-column="20" selection-end-line="259" selection-end-column="20" />
               <folding>
                 <element signature="method#initializeGame#0;class#TicTacToeGame#0" expanded="false" />
                 <element signature="method#drawBoard#0;class#TicTacToeGame#0" expanded="false" />
                 <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-                <element signature="method#getMoveNN#0;class#TicTacToeGame#0" expanded="false" />
                 <element signature="method#getMoveRandom#0;class#TicTacToeGame#0" expanded="false" />
                 <element signature="method#isMoveValid#0;class#TicTacToeGame#0" expanded="false" />
                 <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
@@ -83,11 +65,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NeuralPlayerRandom.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FileOutputStream.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/io/FileOutputStream.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-689">
+              <caret line="301" column="24" lean-forward="false" selection-start-line="301" selection-start-column="24" selection-end-line="301" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PickRandomNumberGame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PickRandomNumberGame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1264#1265#0" expanded="true" />
+                <element signature="e#1337#1338#0" expanded="true" />
+                <element signature="e#1953#1954#0" expanded="true" />
+                <element signature="e#2000#2001#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NeuralPlayerRandom.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/NeuralPlayerRandom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="30" column="10" lean-forward="false" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+            <state relative-caret-position="391">
+              <caret line="27" column="10" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,8 +106,8 @@
       <file leaf-file-name="PlayerScoreRandom.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PlayerScoreRandom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+            <state relative-caret-position="102">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -132,6 +140,7 @@
       <find>isMoveValid</find>
       <find>epoch</find>
       <find>.0</find>
+      <find>epock</find>
     </findStrings>
     <replaceStrings>
       <replace>this.isMoveValid</replace>
@@ -148,7 +157,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/TestRun.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/NeuralPlayer.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/TicTacToeGame.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/PlayerScoreRandom.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/MainTrain.java" root0="FORCE_HIGHLIGHTING" />
@@ -168,11 +176,13 @@
         <option value="$PROJECT_DIR$/src/boop/NeuralPlayer.java" />
         <option value="$PROJECT_DIR$/src/boop/PlayerScore.java" />
         <option value="$PROJECT_DIR$/src/PlayerScore.java" />
-        <option value="$PROJECT_DIR$/src/PlayerScoreRandom.java" />
-        <option value="$PROJECT_DIR$/src/NeuralPlayerRandom.java" />
         <option value="$PROJECT_DIR$/src/NeuralPlayer.java" />
-        <option value="$PROJECT_DIR$/src/MainTrain.java" />
+        <option value="$PROJECT_DIR$/src/PickrandomNumberGame.java" />
+        <option value="$PROJECT_DIR$/src/PlayerScoreRandom.java" />
         <option value="$PROJECT_DIR$/src/TicTacToeGame.java" />
+        <option value="$PROJECT_DIR$/src/PickRandomNumberGame.java" />
+        <option value="$PROJECT_DIR$/src/MainTrain.java" />
+        <option value="$PROJECT_DIR$/src/NeuralPlayerRandom.java" />
       </list>
     </option>
   </component>
@@ -213,7 +223,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -243,7 +253,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -473,10 +483,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2809829" sideWeight="0.5170576" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2809829" sideWeight="0.48294243" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2809829" sideWeight="0.48294243" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10660981" sideWeight="0.4947994" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1076759" sideWeight="0.4947994" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24926254" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -490,31 +500,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.4914712" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2809829" sideWeight="0.5170576" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="100" y="123" width="1240" height="673" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2809829" sideWeight="0.48294243" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31716418" sideWeight="0.4947994" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24926254" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3107676" sideWeight="0.50520056" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3985043" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -523,13 +508,43 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MainTrain.java</url>
-          <line>70</line>
+          <url>file://$PROJECT_DIR$/src/TicTacToeGame.java</url>
+          <line>183</line>
           <properties />
-          <option name="timeStamp" value="37" />
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/TicTacToeGame.java</url>
+          <line>182</line>
+          <properties />
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/TicTacToeGame.java</url>
+          <line>259</line>
+          <properties />
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/TicTacToeGame.java</url>
+          <line>258</line>
+          <properties />
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/PickRandomNumberGame.java</url>
+          <line>74</line>
+          <properties />
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/PickRandomNumberGame.java</url>
+          <line>75</line>
+          <properties />
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="39" />
+      <option name="time" value="54" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -542,42 +557,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/NeuralPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#1096#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TicTacToeGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding>
-            <element signature="method#initializeGame#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#drawBoard#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveNN#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveRandom#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#isMoveValid#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#toDoubleArray#0;class#TicTacToeGame#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerScore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TestRun.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -592,7 +571,6 @@
           <caret line="59" column="18" lean-forward="false" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#trainVsOthers#0;class#MainTrain#0" expanded="false" />
             <element signature="method#append#0;class#MainTrain#0" expanded="false" />
           </folding>
         </state>
@@ -602,10 +580,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#1096#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -617,7 +592,6 @@
             <element signature="method#initializeGame#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#drawBoard#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveNN#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#getMoveRandom#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#isMoveValid#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
@@ -648,7 +622,6 @@
           <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#trainVsOthers#0;class#MainTrain#0" expanded="false" />
             <element signature="method#append#0;class#MainTrain#0" expanded="false" />
           </folding>
         </state>
@@ -666,10 +639,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#1096#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -681,7 +651,6 @@
             <element signature="method#initializeGame#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#drawBoard#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveNN#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#getMoveRandom#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#isMoveValid#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
@@ -712,7 +681,6 @@
           <caret line="68" column="1" lean-forward="true" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#trainVsOthers#0;class#MainTrain#0" expanded="false" />
             <element signature="method#append#0;class#MainTrain#0" expanded="false" />
           </folding>
         </state>
@@ -730,10 +698,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#1096#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -745,7 +710,6 @@
             <element signature="method#initializeGame#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#drawBoard#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveNN#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#getMoveRandom#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#isMoveValid#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
@@ -776,7 +740,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#trainVsOthers#0;class#MainTrain#0" expanded="false" />
             <element signature="method#append#0;class#MainTrain#0" expanded="false" />
           </folding>
         </state>
@@ -786,10 +749,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#1096#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -801,7 +761,6 @@
             <element signature="method#initializeGame#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#drawBoard#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveNN#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#getMoveRandom#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#isMoveValid#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
@@ -832,7 +791,6 @@
           <caret line="49" column="30" lean-forward="false" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#trainVsOthers#0;class#MainTrain#0" expanded="false" />
             <element signature="method#append#0;class#MainTrain#0" expanded="false" />
           </folding>
         </state>
@@ -842,10 +800,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#1096#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -857,7 +812,6 @@
             <element signature="method#initializeGame#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#drawBoard#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveNN#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#getMoveRandom#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#isMoveValid#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
@@ -888,7 +842,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#trainVsOthers#0;class#MainTrain#0" expanded="false" />
             <element signature="method#append#0;class#MainTrain#0" expanded="false" />
           </folding>
         </state>
@@ -898,10 +851,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#1096#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -913,7 +863,6 @@
             <element signature="method#initializeGame#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#drawBoard#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveNN#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#getMoveRandom#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#isMoveValid#0;class#TicTacToeGame#0" expanded="false" />
             <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
@@ -944,7 +893,6 @@
           <caret line="58" column="1" lean-forward="false" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#trainVsOthers#0;class#MainTrain#0" expanded="false" />
             <element signature="method#append#0;class#MainTrain#0" expanded="false" />
           </folding>
         </state>
@@ -954,10 +902,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#1096#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -987,14 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerScore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TestRun.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -1005,58 +942,91 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NeuralPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" column="53" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        <state relative-caret-position="493">
+          <caret line="34" column="50" lean-forward="false" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerScore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/io/PrintStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="522" column="0" lean-forward="false" selection-start-line="522" selection-start-column="0" selection-end-line="522" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/io/FileOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-689">
+          <caret line="301" column="24" lean-forward="false" selection-start-line="301" selection-start-column="24" selection-end-line="301" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PickRandomNumberGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
-            <element signature="e#0#1096#0" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="e#1264#1265#0" expanded="true" />
+            <element signature="e#1337#1338#0" expanded="true" />
+            <element signature="e#1953#1954#0" expanded="true" />
+            <element signature="e#2000#2001#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TicTacToeGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="259" column="20" lean-forward="false" selection-start-line="259" selection-start-column="20" selection-end-line="259" selection-end-column="20" />
+          <folding>
+            <element signature="method#initializeGame#0;class#TicTacToeGame#0" expanded="false" />
+            <element signature="method#drawBoard#0;class#TicTacToeGame#0" expanded="false" />
+            <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
+            <element signature="method#getMoveRandom#0;class#TicTacToeGame#0" expanded="false" />
+            <element signature="method#isMoveValid#0;class#TicTacToeGame#0" expanded="false" />
+            <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
+            <element signature="method#toDoubleArray#0;class#TicTacToeGame#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainTrain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="61" column="56" lean-forward="false" selection-start-line="61" selection-start-column="56" selection-end-line="61" selection-end-column="56" />
+        <state relative-caret-position="7">
+          <caret line="52" column="34" lean-forward="false" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#trainVsOthers#0;class#MainTrain#0" expanded="false" />
             <element signature="method#append#0;class#MainTrain#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NeuralPlayerRandom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="30" column="10" lean-forward="false" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlayerScoreRandom.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        <state relative-caret-position="102">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TicTacToeGame.java">
+    <entry file="file://$PROJECT_DIR$/src/NeuralPlayerRandom.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="37" column="49" lean-forward="true" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
+        <state relative-caret-position="391">
+          <caret line="27" column="10" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
           <folding>
-            <element signature="method#initializeGame#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#drawBoard#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveNN#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveRandom#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#isMoveValid#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#toDoubleArray#0;class#TicTacToeGame#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

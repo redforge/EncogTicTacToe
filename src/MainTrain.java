@@ -25,14 +25,13 @@ import org.encog.util.Format;
 public class MainTrain {
 
     public static NEATPopulation createPop(int size) { //Generate a template network
-        int inputNeurons = 9;
-        int outputNeurons = 9;
+        int inputNeurons = 2;
+        int outputNeurons = 1;
         NEATPopulation network = new NEATPopulation(inputNeurons, outputNeurons, size);
         network.reset();
         return network;
     }
 
-    public static MLMethod[] previousBests = new BasicNetwork[0];
     public static int popSize;
     public static int bestFitness;
 
@@ -51,7 +50,7 @@ public class MainTrain {
 
             int epoch = 1;
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 40; i++) {
                 train.iteration();
                 System.out.println("Random - " + "Epoch #" + epoch + " Score:" + train.getError());
                 epoch++;
@@ -63,45 +62,23 @@ public class MainTrain {
 
             NEATNetwork network;
             network = (NEATNetwork) train.getCODEC().decode(pop.getBestGenome());
-            previousBests = append(previousBests, network);
+
+            while (true) {
+                PickRandomNumberGame humanGame = new PickRandomNumberGame();
+                humanGame.initializeGame();
+                humanGame.humanTurn(network);
+                humanGame.drawBoard();
+                System.out.println(humanGame.getWinner());
+            }
+
+            /*while (true) {
+                TicTacToeGame humanGame = new TicTacToeGame();
+                humanGame.initializeGame();
+                while (humanGame.getWinner() == -2)
+                    humanGame.turnHuman(network);
+            }*/
         }
     }
-
-    void trainVsOthers() {/*
-        //Train vs others
-        bestFitness = -100;
-        popSize = 100;
-        //epoch = 1;
-        for (epoch = 0; epoch < 10; ) {
-            //Set training
-            train = new MLMethodGeneticAlgorithm(new MethodFactory() {
-                @Override
-                public MLMethod factor() {
-                    final BasicNetwork result = createNetwork();
-                    ((MLResettable) result).reset();
-                    return result;
-                }
-            }, new boop.NeuralPlayer.PlayerScore(previousBests), popSize);
-
-            //Train to beat
-            for (int i=0; i < epoch; i++) {
-                train.iteration();
-                System.out.println("Competitive - " + "Epoch #" + epoch + "Round #" + i + " Score:" + train.getError() + " Population size: " + popSize);
-            }
-
-            //Check if better
-            if (train.getError() > bestFitness) {
-                previousBests = append(previousBests, train.getMethod());
-                bestFitness = (int)train.getError();
-                epoch++;
-            } else {
-                popSize *= 1.5;
-            }
-            
-            train.finishTraining();
-        }*/
-    }
-
     private static MLMethod[] append(MLMethod[] oldArray, MLMethod toAppend) {
         MLMethod[] newArray = new MLMethod[oldArray.length + 1];
         for (int i = 0; i < oldArray.length; i++) {

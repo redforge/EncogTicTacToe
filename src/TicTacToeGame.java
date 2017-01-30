@@ -15,8 +15,8 @@ import static java.lang.Math.random;
 
 
 public class TicTacToeGame {
-    private static final int numberOfSpaces = 9;
-    private static int[] board = new int[numberOfSpaces];
+    private final int numberOfSpaces = 9;
+    private int[] board = new int[numberOfSpaces];
 
     public int winner = -2;
     public int playerTurn = 1;
@@ -171,15 +171,16 @@ public class TicTacToeGame {
 
             //If nothing was found, look for any valid move
             if(!foundAnything) {
-                //System.out.println("Error! Neural network couldn't find a valid move");
-                //System.out.println("Finding any valid move...");
+                System.out.println("Error! Neural network couldn't find a valid move");
+                System.out.println("Finding any valid move...");
                 int i = 0;
                 do {
                     //Note: indexOfHighestValue is the move that is to be made
                     indexOfHighestValue = i;
                     i++;
                     if (i > numberOfSpaces) {
-                        //System.out.println ("Couldn't find any valid moves...");
+                        this.drawBoard(this.getBoard());
+                        System.out.println ("Couldn't find any valid moves...");
                         indexOfHighestValue = 1;
                         break;
                     }
