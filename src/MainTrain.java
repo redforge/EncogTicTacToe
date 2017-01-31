@@ -68,9 +68,9 @@ public class MainTrain {
 
         //Train vs others
         bestFitness = -100;
-        popSize = 100;
+        popSize = 500;
         //epoch = 1;
-        for (int epoch = 0; epoch < 20; epoch++) {
+        for (int epoch = 0; epoch < 55; epoch++) {
             NEATPopulation pop;
             pop = createPop(popSize); //Create population
 
@@ -81,21 +81,18 @@ public class MainTrain {
             train.setSpeciation(speciation);
 
             //Train to beat
-            for (int i=0; i < 100; i++) {
+            do {
                 train.iteration();
-            }
+            } while (train.getError() <= bestFitness);
 
             //Check if better
-            if (train.getError() > bestFitness) {
-                System.out.println("Competitive - " + "Epoch #" + epoch  + " Opponents: " + previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
+            System.out.println("Competitive - " + "Epoch #" + epoch  + " Opponents: " + previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
 
-                previousBests = append(previousBests, train.getCODEC().decode(pop.getBestGenome()));
-                bestFitness = (int)train.getError();
-                PlayerScoreRandom testScore = new PlayerScoreRandom();
-                System.out.println(testScore.calculateScore(previousBests[previousBests.length-1]));
-            } else {
-                popSize *= 1.5;
-            }
+            previousBests = append(previousBests, train.getCODEC().decode(pop.getBestGenome()));
+            bestFitness = (int)train.getError();
+            PlayerScoreRandom testScore = new PlayerScoreRandom();
+            System.out.println(testScore.calculateScore(previousBests[previousBests.length-1]));
+
 
             train.finishTraining();
         }

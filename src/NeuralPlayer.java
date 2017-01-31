@@ -30,7 +30,7 @@ public class NeuralPlayer {
             if (game.winner == -2)
                 game.turn(this.network, opponent);
 
-        game.drawBoard(game.getBoard());
+        //game.drawBoard(game.getBoard());
         //System.out.println(game.getWinner());
         return game.winner;
     }
