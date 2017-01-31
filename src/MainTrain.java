@@ -1,30 +1,87 @@
-
-import org.encog.engine.network.activation.ActivationTANH;
 import org.encog.ml.MLMethod;
-import org.encog.ml.MLResettable;
-import org.encog.ml.MethodFactory;
-import org.encog.ml.genetic.MLMethodGeneticAlgorithm;
-import org.encog.ml.train.MLTrain;
 import org.encog.neural.neat.training.species.OriginalNEATSpeciation;
 import org.encog.neural.networks.BasicNetwork;
-import org.encog.neural.pattern.FeedForwardPattern;
 
 import org.encog.ml.ea.train.EvolutionaryAlgorithm;
-import org.encog.neural.hyperneat.substrate.Substrate;
-import org.encog.neural.hyperneat.substrate.SubstrateFactory;
-import org.encog.neural.neat.*;
+import org.encog.neural.neat.NEATNetwork;
 import org.encog.neural.neat.NEATPopulation;
 import org.encog.neural.neat.NEATUtil;
-import org.encog.neural.neat.training.species.OriginalNEATSpeciation;
-import org.encog.util.Format;
+
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileOutputStream;
 
 
 /**
  * Created by ethanm on 1/25/17.
+ * Trains network using competitive unsupervised learning with NEAT
  */
 public class MainTrain {
 
-    public static NEATPopulation createPop(int size) { //Generate a template network
+    private static MLMethod[] previousBests;
+    private static final int popSize = 500;
+    private static int bestFitness;
+    private static int epoch;
+
+    public static void main(String[] args) {
+        readFiles();
+        //Train
+        while (true) {
+            System.out.println("\nEpoch: " + epoch);
+            trainIteration();
+            epoch++;
+            writeFiles();
+        }
+    }
+
+    public static void readFiles() {
+        ObjectInputStream in;
+        try {
+            //Get previous bests
+            in = new ObjectInputStream(new FileInputStream("previousBests"));
+            previousBests = (MLMethod[]) in.readObject();
+            //Get previous bestFitness
+            in = new ObjectInputStream(new FileInputStream("bestFitness"));
+            bestFitness = (int) in.readObject();
+            //Get previous epoch
+            in = new ObjectInputStream(new FileInputStream("epoch"));
+            epoch = (int) in.readObject();
+        } catch (IOException e) {
+            //When nothing found
+            previousBests = new BasicNetwork[0];
+            bestFitness = -100;
+            epoch = 0;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void writeFiles() {
+        ObjectOutputStream out;
+
+        try {
+            //Write previous bests
+            out = new ObjectOutputStream(new FileOutputStream("previousBests"));
+            out.writeObject(previousBests);
+            //Write previous bestFitness
+            out = new ObjectOutputStream(new FileOutputStream("bestFitness"));
+            out.writeObject(bestFitness);
+            //Write previous epoch
+            out = new ObjectOutputStream(new FileOutputStream("epoch"));
+            out.writeObject(epoch);
+            //Write best to separate file
+            MLMethod m = previousBests[previousBests.length-1];
+            out = new ObjectOutputStream(new FileOutputStream("bestNet"));
+            out.writeObject(m);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static NEATPopulation createPop(int size) { //Generate a template population
         int inputNeurons = 9;
         int outputNeurons = 9;
         NEATPopulation network = new NEATPopulation(inputNeurons, outputNeurons, size);
@@ -32,45 +89,31 @@ public class MainTrain {
         return network;
     }
 
-    public static MLMethod[] previousBests = new BasicNetwork[0];
-    public static int popSize;
-    public static int bestFitness;
+    private static void trainIteration() {
+        NEATPopulation pop;
+        pop = createPop(popSize); //Create population
 
-    public static void main(String[] args) {
-        //Train vs others
-        bestFitness = -100;
-        popSize = 500;
-        //epoch = 1;
-        for (int epoch = 0; epoch < 55; epoch++) {
-            NEATPopulation pop;
-            pop = createPop(popSize); //Create population
+        EvolutionaryAlgorithm train; //Create training
+        train = NEATUtil.constructNEATTrainer(pop, new PlayerScore(previousBests));
 
-            EvolutionaryAlgorithm train; //Create training
-            train = NEATUtil.constructNEATTrainer(pop, new PlayerScore(previousBests));
+        OriginalNEATSpeciation speciation = new OriginalNEATSpeciation();
+        train.setSpeciation(speciation);
 
-            OriginalNEATSpeciation speciation = new OriginalNEATSpeciation();
-            train.setSpeciation(speciation);
+        //Train to beat
+        do {
+            train.iteration();
+        } while (train.getError() <= bestFitness);
 
-            //Train to beat
-            do {
-                train.iteration();
-            } while (train.getError() <= bestFitness);
+        //Check if better
+        System.out.println("Competitive - " + " Opponents: " + previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
 
-            //Check if better
-            System.out.println("Competitive - " + "Epoch #" + epoch  + " Opponents: " + previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
+        previousBests = append(previousBests, train.getCODEC().decode(pop.getBestGenome()));
+        bestFitness = (int)train.getError();
 
-            previousBests = append(previousBests, train.getCODEC().decode(pop.getBestGenome()));
-            bestFitness = (int)train.getError();
-            PlayerScoreRandom testScore = new PlayerScoreRandom();
-            System.out.println(testScore.calculateScore(previousBests[previousBests.length-1]));
+        train.finishTraining();
+    }
 
-
-            train.finishTraining();
-        }
-
-
-
-        //Play v human
+    private static void playVsHuman() {
         NEATNetwork network;
         network = (NEATNetwork) previousBests[previousBests.length-1];
         while (true) {
@@ -80,41 +123,6 @@ public class MainTrain {
                 humanGame.turnHuman(network);
             }
         }
-    }
-
-    void trainVsOthers() {/*
-        //Train vs others
-        bestFitness = -100;
-        popSize = 100;
-        //epoch = 1;
-        for (epoch = 0; epoch < 10; ) {
-            //Set training
-            train = new MLMethodGeneticAlgorithm(new MethodFactory() {
-                @Override
-                public MLMethod factor() {
-                    final BasicNetwork result = createNetwork();
-                    ((MLResettable) result).reset();
-                    return result;
-                }
-            }, new boop.NeuralPlayer.PlayerScore(previousBests), popSize);
-
-            //Train to beat
-            for (int i=0; i < epoch; i++) {
-                train.iteration();
-                System.out.println("Competitive - " + "Epoch #" + epoch + "Round #" + i + " Score:" + train.getError() + " Population size: " + popSize);
-            }
-
-            //Check if better
-            if (train.getError() > bestFitness) {
-                previousBests = append(previousBests, train.getMethod());
-                bestFitness = (int)train.getError();
-                epoch++;
-            } else {
-                popSize *= 1.5;
-            }
-            
-            train.finishTraining();
-        }*/
     }
 
     private static MLMethod[] append(MLMethod[] oldArray, MLMethod toAppend) {

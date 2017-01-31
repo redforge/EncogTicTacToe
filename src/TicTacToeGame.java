@@ -54,6 +54,7 @@ public class TicTacToeGame {
         if (this.turns >= 8 && this.winner == -2)
             this.winner = 0;
 
+        this.drawBoard(this.getBoard());
         this.playerTurn *= -1;
         this.turns++;
     }
