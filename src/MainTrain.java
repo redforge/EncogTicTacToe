@@ -37,35 +37,6 @@ public class MainTrain {
     public static int bestFitness;
 
     public static void main(String[] args) {
-        {
-            NEATPopulation pop = createPop(100);
-
-            //Create training
-            EvolutionaryAlgorithm train;
-
-            //Do initial training vs random
-            train = NEATUtil.constructNEATTrainer(pop, new PlayerScoreRandom());
-            //Speciation
-            OriginalNEATSpeciation speciation = new OriginalNEATSpeciation();
-            train.setSpeciation(speciation);
-
-            int epoch = 1;
-
-            for (int i = 0; i < 5; i++) {
-                train.iteration();
-                System.out.println("Random - " + "Epoch #" + epoch + " Score:" + train.getError());
-                epoch++;
-            }
-            train.finishTraining();
-            //previousBests = append(previousBests, train.getMethod());
-
-            System.out.println("Random Training Complete. \n Starting competitive training... \n\n\n");
-
-            NEATNetwork network;
-            network = (NEATNetwork) train.getCODEC().decode(pop.getBestGenome());
-        }
-
-
         //Train vs others
         bestFitness = -100;
         popSize = 500;
