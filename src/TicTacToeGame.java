@@ -25,12 +25,12 @@ public class TicTacToeGame {
     public void turn(NEATNetwork network) {
         //Do Move
         if (this.playerTurn == 1)
-            this.doMove(1, this.getMoveNN(network));
+            this.doMove(1, this.getMoveNN(network, this.board));
         else if (this.playerTurn == -1)
             this.doMove(-1, this.getMoveRandom());
 
         //Check if its winning move
-        if (this.isWinning(this.playerTurn, this.getBoard()))
+        if (this.isWinning(this.playerTurn, this.board))
             this.winner = this.playerTurn;
         //Check if its a draw
         if (this.turns >= 8 && this.winner == -2)
@@ -43,18 +43,18 @@ public class TicTacToeGame {
     public void turnHuman(NEATNetwork network) {
         //Do Move
         if (this.playerTurn == 1)
-            this.doMove(1, this.getMoveNN(network));
+            this.doMove(1, this.getMoveNN(network, this.board));
         else if (this.playerTurn == -1)
             this.doMove(-1, this.getMoveHuman());
 
         //Check if its winning move
-        if (this.isWinning(this.playerTurn, this.getBoard()))
+        if (this.isWinning(this.playerTurn, this.board))
             this.winner = this.playerTurn;
         //Check if its a draw
         if (this.turns >= 8 && this.winner == -2)
             this.winner = 0;
 
-        this.drawBoard(this.getBoard());
+        this.drawBoard(this.board);
         this.playerTurn *= -1;
         this.turns++;
     }
@@ -62,12 +62,12 @@ public class TicTacToeGame {
     public void turn(NEATNetwork network1, NEATNetwork network2) {
         //Do Move
         if (this.playerTurn == 1)
-            this.doMove(1, this.getMoveNN(network1));
+            this.doMove(1, this.getMoveNN(network1, this.board));
         else if (this.playerTurn == -1)
-            this.doMove(-1, this.getMoveNN(network2));
+            this.doMove(-1, this.getMoveNN(network2, invert(this.board)));
 
         //Check if its winning move
-        if (this.isWinning(this.playerTurn, this.getBoard()))
+        if (this.isWinning(this.playerTurn, this.board))
             this.winner = this.playerTurn;
         //Check if its a draw
         if (this.turns >= 8 && this.winner == -2)
@@ -77,12 +77,10 @@ public class TicTacToeGame {
         this.turns++;
     }
 
-    public int[] getBoard() {
-        return this.board;
-    }
-
-    public int getWinner() {
-        return this.winner;
+    public int[] invert(int[] array) {
+        for (int i=0; i<array.length; i++)
+            array[i] *= -1;
+        return array;
     }
 
     public void initializeGame() {
@@ -128,9 +126,9 @@ public class TicTacToeGame {
         return i;
     }
 
-    public int getMoveNN(NEATNetwork network) {
+    public int getMoveNN(NEATNetwork network, int[] board) {
 
-        MLData boardData = new BasicMLData(toDoubleArray(this.board));
+        MLData boardData = new BasicMLData(toDoubleArray(board));
         MLData moveData = network.compute(boardData);
 
         int indexOfHighestValue    =  0 ;
@@ -159,7 +157,7 @@ public class TicTacToeGame {
 
             //If nothing was found, return first valid move
             if(!foundAnything)
-                return this.getMoveFirst();
+                return this.getMoveFirst(board);
 
         } while (!this.isMoveValid(indexOfHighestValue));
         return indexOfHighestValue;
@@ -178,17 +176,12 @@ public class TicTacToeGame {
         return validMoves[index];
     }
 
-    public int getMoveFirst() {
-        int [] validMoves = new int[0];
-        for (int i=0; i < this.board.length; i++) {
-            if (this.isMoveValid(i)) {
-                validMoves = append(validMoves, i);
-            }
-        }
-
-        int index;
-        index = 0;
-        return validMoves[index];
+    public int getMoveFirst(int[] board) {
+        for (int i=0; i < board.length; i++)
+            if (this.isMoveValid(i))
+                return i;
+        System.out.println("Error: Could not find any valid move");
+        return 0;
     }
 
     private int[] append(int[] prev, int toAdd) {

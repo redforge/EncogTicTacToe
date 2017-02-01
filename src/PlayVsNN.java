@@ -38,7 +38,7 @@ public class PlayVsNN {
         while (true) {
             TicTacToeGame humanGame = new TicTacToeGame();
             humanGame.initializeGame();
-            while (humanGame.getWinner() == -2) {
+            while (humanGame.winner == -2) {
                 humanGame.turnHuman(network);
             }
         }

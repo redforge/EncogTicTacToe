@@ -21,18 +21,16 @@ import java.io.FileOutputStream;
  */
 public class MainTrain {
 
-    private static MLMethod[] previousBests;
+    private static TrainingData playerData;
     private static final int popSize = 500;
-    private static int bestFitness;
-    private static int epoch;
 
     public static void main(String[] args) {
         readFiles();
         //Train
         while (true) {
-            System.out.println("\nEpoch: " + epoch);
+            System.out.println("\nEpoch: " + playerData.epoch);
             trainIteration();
-            epoch++;
+            playerData.epoch++;
             writeFiles();
         }
     }
@@ -40,20 +38,13 @@ public class MainTrain {
     public static void readFiles() {
         ObjectInputStream in;
         try {
-            //Get previous bests
-            in = new ObjectInputStream(new FileInputStream("previousBests"));
-            previousBests = (MLMethod[]) in.readObject();
-            //Get previous bestFitness
-            in = new ObjectInputStream(new FileInputStream("bestFitness"));
-            bestFitness = (int) in.readObject();
-            //Get previous epoch
-            in = new ObjectInputStream(new FileInputStream("epoch"));
-            epoch = (int) in.readObject();
+            //Get player data
+            in = new ObjectInputStream(new FileInputStream("training-data.td"));
+            playerData = (TrainingData) in.readObject();
         } catch (IOException e) {
             //When nothing found
-            previousBests = new BasicNetwork[0];
-            bestFitness = -100;
-            epoch = 0;
+            playerData = new TrainingData();
+            playerData.reset();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -64,18 +55,8 @@ public class MainTrain {
 
         try {
             //Write previous bests
-            out = new ObjectOutputStream(new FileOutputStream("previousBests"));
-            out.writeObject(previousBests);
-            //Write previous bestFitness
-            out = new ObjectOutputStream(new FileOutputStream("bestFitness"));
-            out.writeObject(bestFitness);
-            //Write previous epoch
-            out = new ObjectOutputStream(new FileOutputStream("epoch"));
-            out.writeObject(epoch);
-            //Write best to separate file
-            MLMethod m = previousBests[previousBests.length-1];
-            out = new ObjectOutputStream(new FileOutputStream("bestNet"));
-            out.writeObject(m);
+            out = new ObjectOutputStream(new FileOutputStream("training-data.td"));
+            out.writeObject(playerData);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -94,7 +75,7 @@ public class MainTrain {
         pop = createPop(popSize); //Create population
 
         EvolutionaryAlgorithm train; //Create training
-        train = NEATUtil.constructNEATTrainer(pop, new PlayerScore(previousBests));
+        train = NEATUtil.constructNEATTrainer(pop, new PlayerScore(playerData.previousBests));
 
         OriginalNEATSpeciation speciation = new OriginalNEATSpeciation();
         train.setSpeciation(speciation);
@@ -102,24 +83,24 @@ public class MainTrain {
         //Train to beat
         do {
             train.iteration();
-        } while (train.getError() <= bestFitness);
+        } while (train.getError() <= playerData.bestFitness);
 
         //Check if better
-        System.out.println("Competitive - " + " Opponents: " + previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
+        System.out.println("Competitive - " + " Opponents: " + playerData.previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
 
-        previousBests = append(previousBests, train.getCODEC().decode(pop.getBestGenome()));
-        bestFitness = (int)train.getError();
+        playerData.previousBests = append(playerData.previousBests, train.getCODEC().decode(pop.getBestGenome()));
+        playerData.bestFitness = (int)train.getError();
 
         train.finishTraining();
     }
 
     private static void playVsHuman() {
         NEATNetwork network;
-        network = (NEATNetwork) previousBests[previousBests.length-1];
+        network = (NEATNetwork) playerData.previousBests[playerData.previousBests.length-1];
         while (true) {
             TicTacToeGame humanGame = new TicTacToeGame();
             humanGame.initializeGame();
-            while (humanGame.getWinner() == -2) {
+            while (humanGame.winner == -2) {
                 humanGame.turnHuman(network);
             }
         }
