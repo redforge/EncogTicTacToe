@@ -84,7 +84,7 @@ public class MainTrain {
         pop = createPop(popSize); //Create population
 
         EvolutionaryAlgorithm train; //Create training
-        train = NEATUtil.constructNEATTrainer(pop, new PlayerScore2(playerData2.previousBests));
+        train = NEATUtil.constructNEATTrainer(pop, new PlayerScore(playerData2.previousBests));
 
         OriginalNEATSpeciation speciation = new OriginalNEATSpeciation();
         train.setSpeciation(speciation);
@@ -92,7 +92,7 @@ public class MainTrain {
         //Train to beat
         do {
             train.iteration();
-        } while (train.getError() < playerData.bestFitness);
+        } while (train.getError() <= playerData.bestFitness);
 
         //Check if better
         System.out.println("Competitive - " + " Opponents: " + playerData.previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
@@ -109,7 +109,7 @@ public class MainTrain {
         pop = createPop(popSize); //Create population
 
         EvolutionaryAlgorithm train; //Create training
-        train = NEATUtil.constructNEATTrainer(pop, new PlayerScore(playerData.previousBests));
+        train = NEATUtil.constructNEATTrainer(pop, new PlayerScore2(playerData.previousBests));
 
         OriginalNEATSpeciation speciation = new OriginalNEATSpeciation();
         train.setSpeciation(speciation);
@@ -117,7 +117,7 @@ public class MainTrain {
         //Train to beat
         do {
             train.iteration();
-        } while (train.getError() < playerData2.bestFitness);
+        } while (train.getError() <= playerData2.bestFitness);
 
         //Check if better
         System.out.println("Competitive - " + " Opponents: " + playerData2.previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
