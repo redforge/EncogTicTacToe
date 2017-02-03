@@ -16,11 +16,13 @@ import static java.lang.Math.random;
 
 public class TicTacToeGame {
     private final int numberOfSpaces = 9;
-    private int[] board = new int[numberOfSpaces];
+    public int[] board = new int[numberOfSpaces];
 
     public int winner = -2;
     public int playerTurn = 1;
     public int turns = 0;
+
+    private boolean displayBoardNext;
 
     public void turn(NEATNetwork network) {
         //Do Move
@@ -54,17 +56,24 @@ public class TicTacToeGame {
         if (this.turns >= 8 && this.winner == -2)
             this.winner = 0;
 
-        this.drawBoard(this.board);
+        this.drawBoard();
         this.playerTurn *= -1;
         this.turns++;
     }
 
     public void turn(NEATNetwork network1, NEATNetwork network2) {
+        this.displayBoardNext = false;
         //Do Move
-        if (this.playerTurn == 1)
+        if (this.playerTurn == 1) {
             this.doMove(1, this.getMoveNN(network1, this.board));
-        else if (this.playerTurn == -1)
+            this.playerTurn = -1;
+        } else if (this.playerTurn == -1) {
             this.doMove(-1, this.getMoveNN(network2, invert(this.board)));
+            this.playerTurn = 1;
+        }
+
+        if (this.displayBoardNext)
+            this.drawBoard();
 
         //Check if its winning move
         if (this.isWinning(this.playerTurn, this.board))
@@ -93,7 +102,8 @@ public class TicTacToeGame {
         this.turns = 0;
     }
 
-    public void drawBoard(int[] grid) {
+    public void drawBoard() {
+        int[] grid = this.board;
         int j = 0;
         String ln = "";
         for (int i = 0; i < grid.length; i++) {
@@ -156,8 +166,13 @@ public class TicTacToeGame {
             isFirstIteration = false;
 
             //If nothing was found, return first valid move
-            if(!foundAnything)
+            if(!foundAnything) {
+                System.out.println("Before" + playerTurn);
+                this.drawBoard();
+                this.displayBoardNext= true;
                 return this.getMoveFirst(board);
+
+            }
 
         } while (!this.isMoveValid(indexOfHighestValue));
         return indexOfHighestValue;
@@ -177,11 +192,16 @@ public class TicTacToeGame {
     }
 
     public int getMoveFirst(int[] board) {
-        for (int i=0; i < board.length; i++)
-            if (this.isMoveValid(i))
-                return i;
-        System.out.println("Error: Could not find any valid move");
-        return 0;
+        int [] validMoves = new int[0];
+        for (int i=0; i < this.board.length; i++) {
+            if (this.isMoveValid(i)) {
+                validMoves = append(validMoves, i);
+            }
+        }
+
+        int index;
+        index = 0;
+        return validMoves[index];
     }
 
     private int[] append(int[] prev, int toAdd) {
@@ -233,12 +253,13 @@ public class TicTacToeGame {
     public void doMove(int player, int i) {
         if (!this.isMoveValid(i)) {
             System.out.println("Error: Impossible Move " + i + " Attempted by player " + player);
-            drawBoard(this.board);
+            drawBoard();
             //this.board[i] = player;
             //System.out.println("result");
             //drawBoard(this.board);
         }
         this.board[i] = player;
+        bd();
 
     }
 
@@ -248,6 +269,21 @@ public class TicTacToeGame {
             doubleArray[i] = (double) intArray[i];
         return doubleArray;
     }
+
+    public void bd() {
+        if (!isBoardValid()) {
+            System.out.println("ERROR: Impossible move");
+            this.drawBoard();
+        }
+    }
+    public boolean isBoardValid() {
+        //TTT debug tool, check if current board state is possible
+        int n = 0;
+        for (int i=0; i<board.length; i++)
+            n+=board[i];
+        return (n==0 || n==1);
+    }
 }
+
 
 

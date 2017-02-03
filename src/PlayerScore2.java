@@ -21,7 +21,7 @@ public class PlayerScore2 implements CalculateScore {
         //Make player
         NeuralPlayer player = new NeuralPlayer((NEATNetwork) network, opponentsCast);
         //Score player
-        return -1*player.scorePlayer();
+        return player.scorePlayer2();
     }
 
     public boolean shouldMinimize() {

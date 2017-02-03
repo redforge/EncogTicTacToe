@@ -19,13 +19,17 @@ public class NeuralPlayer {
     public int scorePlayer() {
         int n = 0;
         for (int i = 0; i < this.opponents.length; i++) {
-            n += this.doIteration(this.opponents[i]);
+            n += this.playGame(this.network, this.opponents[i]);
         }
         return n;
     }
 
-    private int doIteration(NEATNetwork opponent) {
-        return playGame(this.network, opponent);
+    public int scorePlayer2() {
+        int n = 0;
+        for (int i = 0; i < this.opponents.length; i++) {
+            n -= this.playGame(this.opponents[i], this.network);
+        }
+        return n;
     }
 
     private int playGame(NEATNetwork network1, NEATNetwork network2) {
@@ -34,6 +38,7 @@ public class NeuralPlayer {
             for(int i = 0; i<9;i++)
                 if(game.winner ==-2)
                     game.turn(network1,network2);
+            //game.drawBoard(game.board);
         return game.winner;
     }
 }
