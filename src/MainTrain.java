@@ -1,4 +1,8 @@
 import org.encog.ml.MLMethod;
+import org.encog.ml.ea.genome.Genome;
+import org.encog.ml.ea.rules.ConstraintRule;
+import org.encog.ml.ea.rules.RewriteRule;
+import org.encog.ml.ea.rules.RuleHolder;
 import org.encog.neural.neat.training.species.OriginalNEATSpeciation;
 import org.encog.neural.networks.BasicNetwork;
 
@@ -13,6 +17,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
+import java.util.List;
 
 
 /**
@@ -24,7 +29,7 @@ public class MainTrain {
     private static TrainingData playerData;
     private static TrainingData playerData2;
 
-    private static final int popSize = 500;
+    private static final int popSize = 5000;
 
     public static void main(String[] args) {
         readFiles();
@@ -43,13 +48,13 @@ public class MainTrain {
         try {
             //Get player data
             in = new ObjectInputStream(new FileInputStream("training-data.td"));
-            playerData = (TrainingData) in.readObject();
+            playerData  = (TrainingData) in.readObject();
             in = new ObjectInputStream(new FileInputStream("training-data2.td"));
             playerData2 = (TrainingData) in.readObject();
         } catch (IOException e) {
             //When nothing found
-            playerData = new TrainingData();
-            playerData.reset();
+            playerData  = new TrainingData();
+            playerData .reset();
             playerData2 = new TrainingData();
             playerData2.reset();
         } catch (ClassNotFoundException e) {
@@ -92,7 +97,8 @@ public class MainTrain {
         //Train to beat
         do {
             train.iteration();
-        } while (train.getError() <= playerData.bestFitness);
+            System.out.print(train.getError());
+        } while (train.getError() < playerData2.previousBests.length);
 
         //Check if better
         System.out.println("Competitive - " + " Opponents: " + playerData.previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
@@ -101,6 +107,7 @@ public class MainTrain {
         NeuralPlayerRandom npr = new NeuralPlayerRandom((NEATNetwork) train.getCODEC().decode(pop.getBestGenome()));
         System.out.println(npr.scorePlayer());
         playerData.bestFitness = (int)train.getError();
+        //playerData.previousBests = limitLength(playerData.previousBests, 20);
 
         train.finishTraining();
     }
@@ -117,13 +124,15 @@ public class MainTrain {
         //Train to beat
         do {
             train.iteration();
-        } while (train.getError() <= playerData2.bestFitness);
+            System.out.print(train.getError());
+        } while (train.getError() < playerData.previousBests.length);
 
         //Check if better
         System.out.println("Competitive - " + " Opponents: " + playerData2.previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
 
         playerData2.previousBests = append(playerData2.previousBests, train.getCODEC().decode(pop.getBestGenome()));
         playerData2.bestFitness = (int)train.getError();
+        //playerData2.previousBests = limitLength(playerData2.previousBests, 20);
 
         train.finishTraining();
     }
@@ -146,6 +155,16 @@ public class MainTrain {
             newArray[i] = oldArray[i];
         }
         newArray[newArray.length - 1] = toAppend;
+        return newArray;
+    }
+
+    private static MLMethod[] limitLength(MLMethod[] oldArray, int length) {
+        if (oldArray.length <= length)
+            return oldArray;
+
+        MLMethod[] newArray = new MLMethod[length];
+        for (int i=0; i<length; i++)
+            newArray[i] = oldArray[oldArray.length-1 - i];
         return newArray;
     }
 }

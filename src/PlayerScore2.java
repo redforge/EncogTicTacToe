@@ -31,7 +31,7 @@ public class PlayerScore2 implements CalculateScore {
 
     @Override
     public boolean requireSingleThreaded() {
-        return false;
+        return true;
     }
 }
 

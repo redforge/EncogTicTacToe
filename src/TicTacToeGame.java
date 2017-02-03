@@ -22,7 +22,7 @@ public class TicTacToeGame {
     public int playerTurn = 1;
     public int turns = 0;
 
-    private boolean displayBoardNext;
+    public String debugInfo = "";
 
     public void turn(NEATNetwork network) {
         //Do Move
@@ -62,18 +62,15 @@ public class TicTacToeGame {
     }
 
     public void turn(NEATNetwork network1, NEATNetwork network2) {
-        this.displayBoardNext = false;
         //Do Move
         if (this.playerTurn == 1) {
             this.doMove(1, this.getMoveNN(network1, this.board));
-            this.playerTurn = -1;
-        } else if (this.playerTurn == -1) {
-            this.doMove(-1, this.getMoveNN(network2, invert(this.board)));
-            this.playerTurn = 1;
-        }
+            ds(this.playerTurn);
 
-        if (this.displayBoardNext)
-            this.drawBoard();
+        } else if (this.playerTurn == -1) {
+            this.doMove(-1, this.getMoveNN(network2, this.board));
+            ds(this.playerTurn);
+        }
 
         //Check if its winning move
         if (this.isWinning(this.playerTurn, this.board))
@@ -87,9 +84,10 @@ public class TicTacToeGame {
     }
 
     public int[] invert(int[] array) {
-        for (int i=0; i<array.length; i++)
-            array[i] *= -1;
-        return array;
+        int[] out = array;
+        for (int i=0; i<out.length; i++)
+            out[i] *= -1;
+        return out;
     }
 
     public void initializeGame() {
@@ -138,6 +136,7 @@ public class TicTacToeGame {
 
     public int getMoveNN(NEATNetwork network, int[] board) {
 
+
         MLData boardData = new BasicMLData(toDoubleArray(board));
         MLData moveData = network.compute(boardData);
 
@@ -166,13 +165,8 @@ public class TicTacToeGame {
             isFirstIteration = false;
 
             //If nothing was found, return first valid move
-            if(!foundAnything) {
-                System.out.println("Before" + playerTurn);
-                this.drawBoard();
-                this.displayBoardNext= true;
+            if(!foundAnything)
                 return this.getMoveFirst(board);
-
-            }
 
         } while (!this.isMoveValid(indexOfHighestValue));
         return indexOfHighestValue;
@@ -259,7 +253,7 @@ public class TicTacToeGame {
             //drawBoard(this.board);
         }
         this.board[i] = player;
-        bd();
+        bd(i);
 
     }
 
@@ -270,10 +264,15 @@ public class TicTacToeGame {
         return doubleArray;
     }
 
-    public void bd() {
+    public void ds(int string) {
+        debugInfo = debugInfo + string + ", ";
+    }
+    public void bd(int i) {
         if (!isBoardValid()) {
-            System.out.println("ERROR: Impossible move");
+            ds (10*i);
+            System.out.println("ERROR: Impossible move" + debugInfo);
             this.drawBoard();
+            //debugInfo = "";
         }
     }
     public boolean isBoardValid() {
