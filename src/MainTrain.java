@@ -27,7 +27,6 @@ import java.util.List;
 public class MainTrain {
 
     private static TrainingData playerData;
-    private static TrainingData playerData2;
 
     private static final int popSize = 5000;
 
@@ -37,7 +36,6 @@ public class MainTrain {
         while (true) {
             System.out.println("\nEpoch: " + playerData.epoch);
             trainIterationA();
-            trainIterationB();
             playerData.epoch++;
             writeFiles();
         }
@@ -49,14 +47,10 @@ public class MainTrain {
             //Get player data
             in = new ObjectInputStream(new FileInputStream("training-data.td"));
             playerData  = (TrainingData) in.readObject();
-            in = new ObjectInputStream(new FileInputStream("training-data2.td"));
-            playerData2 = (TrainingData) in.readObject();
         } catch (IOException e) {
             //When nothing found
             playerData  = new TrainingData();
             playerData .reset();
-            playerData2 = new TrainingData();
-            playerData2.reset();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -69,8 +63,6 @@ public class MainTrain {
             //Write previous bests
             out = new ObjectOutputStream(new FileOutputStream("training-data.td"));
             out.writeObject(playerData);
-            out = new ObjectOutputStream(new FileOutputStream("training-data2.td"));
-            out.writeObject(playerData2);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -89,7 +81,7 @@ public class MainTrain {
         pop = createPop(popSize); //Create population
 
         EvolutionaryAlgorithm train; //Create training
-        train = NEATUtil.constructNEATTrainer(pop, new PlayerScore(playerData2.previousBests));
+        train = NEATUtil.constructNEATTrainer(pop, new PlayerScore(playerData.previousBests));
 
         OriginalNEATSpeciation speciation = new OriginalNEATSpeciation();
         train.setSpeciation(speciation);
@@ -97,8 +89,8 @@ public class MainTrain {
         //Train to beat
         do {
             train.iteration();
-            System.out.print(train.getError());
-        } while (train.getError() < playerData2.previousBests.length);
+            System.out.print(train.getError() + " ");
+        } while (train.getError() < playerData.previousBests.length*2);
 
         //Check if better
         System.out.println("Competitive - " + " Opponents: " + playerData.previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
@@ -110,43 +102,6 @@ public class MainTrain {
         //playerData.previousBests = limitLength(playerData.previousBests, 20);
 
         train.finishTraining();
-    }
-    private static void trainIterationB() {
-        NEATPopulation pop;
-        pop = createPop(popSize); //Create population
-
-        EvolutionaryAlgorithm train; //Create training
-        train = NEATUtil.constructNEATTrainer(pop, new PlayerScore2(playerData.previousBests));
-
-        OriginalNEATSpeciation speciation = new OriginalNEATSpeciation();
-        train.setSpeciation(speciation);
-
-        //Train to beat
-        do {
-            train.iteration();
-            System.out.print(train.getError());
-        } while (train.getError() < playerData.previousBests.length);
-
-        //Check if better
-        System.out.println("Competitive - " + " Opponents: " + playerData2.previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
-
-        playerData2.previousBests = append(playerData2.previousBests, train.getCODEC().decode(pop.getBestGenome()));
-        playerData2.bestFitness = (int)train.getError();
-        //playerData2.previousBests = limitLength(playerData2.previousBests, 20);
-
-        train.finishTraining();
-    }
-
-    private static void playVsHuman() {
-        NEATNetwork network;
-        network = (NEATNetwork) playerData.previousBests[playerData.previousBests.length-1];
-        while (true) {
-            TicTacToeGame humanGame = new TicTacToeGame();
-            humanGame.initializeGame();
-            while (humanGame.winner == -2) {
-                humanGame.turnHuman(network);
-            }
-        }
     }
 
     private static MLMethod[] append(MLMethod[] oldArray, MLMethod toAppend) {

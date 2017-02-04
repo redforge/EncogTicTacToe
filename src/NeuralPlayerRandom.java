@@ -16,19 +16,29 @@ public class NeuralPlayerRandom {
     public int scorePlayer() {
         int n = 0;
         for (int i=0; i<100; i++) {
-            n += this.doIteration();
+            n += this.doIterationA() + this.doIterationB();
         }
-        return n;
+        return n/2;
     }
 
-    public int doIteration() {
+    public int doIterationA() {
 
         TicTacToeGame game = new TicTacToeGame();
         game.initializeGame();
         for(int i = 0; i<9;i++)
             if(game.winner ==-2)
-                game.turn(this.network);
+                game.turnR(this.network);
         return game.winner;
+    }
+
+    public int doIterationB() {
+
+        TicTacToeGame game = new TicTacToeGame();
+        game.initializeGame();
+        for(int i = 0; i<9;i++)
+            if(game.winner ==-2)
+                game.turnR2(this.network);
+        return -game.winner;
     }
 }
 

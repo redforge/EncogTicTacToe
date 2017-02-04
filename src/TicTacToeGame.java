@@ -17,6 +17,8 @@ import static java.lang.Math.random;
 public class TicTacToeGame {
     private final int numberOfSpaces = 9;
     public int[] board = new int[numberOfSpaces];
+    public int[] boardInverted = new int[numberOfSpaces];
+
 
     public int winner = -2;
     public int playerTurn = 1;
@@ -24,12 +26,30 @@ public class TicTacToeGame {
 
     public String debugInfo = "";
 
-    public void turn(NEATNetwork network) {
+    public void turnR(NEATNetwork network) {
         //Do Move
         if (this.playerTurn == 1)
             this.doMove(1, this.getMoveNN(network, this.board));
         else if (this.playerTurn == -1)
             this.doMove(-1, this.getMoveRandom());
+
+        //Check if its winning move
+        if (this.isWinning(this.playerTurn, this.board))
+            this.winner = this.playerTurn;
+        //Check if its a draw
+        if (this.turns >= 8 && this.winner == -2)
+            this.winner = 0;
+
+        this.playerTurn *= -1;
+        this.turns++;
+    }
+
+    public void turnR2(NEATNetwork network) {
+        //Do Move
+        if (this.playerTurn == 1)
+            this.doMove(1, getMoveRandom());
+        else if (this.playerTurn == -1)
+            this.doMove(-1, this.getMoveNN(network, this.boardInverted));
 
         //Check if its winning move
         if (this.isWinning(this.playerTurn, this.board))
@@ -68,7 +88,7 @@ public class TicTacToeGame {
             ds(this.playerTurn);
 
         } else if (this.playerTurn == -1) {
-            this.doMove(-1, this.getMoveNN(network2, this.board));
+            this.doMove(-1, this.getMoveNN(network2, this.boardInverted));
             ds(this.playerTurn);
         }
 
@@ -92,9 +112,12 @@ public class TicTacToeGame {
 
     public void initializeGame() {
         //Initialize board
-        for (int i = 0; i < this.board.length; i++) {
+        for (int i = 0; i < this.board.length; i++)
             this.board[i] = 0;
-        }
+
+        for (int i = 0; i < this.boardInverted.length; i++)
+            this.boardInverted[i] = 0;
+
         this.winner = -2;
         this.playerTurn = 1;
         this.turns = 0;
@@ -253,6 +276,7 @@ public class TicTacToeGame {
             //drawBoard(this.board);
         }
         this.board[i] = player;
+        this.boardInverted[i] = -player;
         bd(i);
 
     }

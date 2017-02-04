@@ -19,15 +19,7 @@ public class NeuralPlayer {
     public int scorePlayer() {
         int n = 0;
         for (int i = 0; i < this.opponents.length; i++) {
-            n += this.playGame(this.network, this.opponents[i]);
-        }
-        return n;
-    }
-
-    public int scorePlayer2() {
-        int n = 0;
-        for (int i = 0; i < this.opponents.length; i++) {
-            n -= this.playGame(this.opponents[i], this.network);
+            n += this.playGame(this.network, this.opponents[i]) + this.playGame(this.opponents[i], this.network)*-1;
         }
         return n;
     }
@@ -38,7 +30,7 @@ public class NeuralPlayer {
             for(int i = 0; i<9;i++)
                 if(game.winner ==-2)
                     game.turn(network1,network2);
-            //game.drawBoard(game.board);
+            //game.drawBoard();
         return game.winner;
     }
 }
