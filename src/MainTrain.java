@@ -28,14 +28,18 @@ public class MainTrain {
 
     private static TrainingData playerData;
 
-    private static final int popSize = 5000;
+    private static final int numPops = 5;
+    private static final int popSize = 500;
 
     public static void main(String[] args) {
         readFiles();
         //Train
         while (true) {
             System.out.println("\nEpoch: " + playerData.epoch);
-            trainIterationA();
+            for (int i=0; i<playerData.pops.length; i++) {
+                trainIteration(i);
+                System.out.println("Iteration " + i + " done!!");
+            }
             playerData.epoch++;
             writeFiles();
         }
@@ -49,8 +53,19 @@ public class MainTrain {
             playerData  = (TrainingData) in.readObject();
         } catch (IOException e) {
             //When nothing found
-            playerData  = new TrainingData();
-            playerData .reset();
+            playerData = new TrainingData();
+            playerData.reset();
+            playerData.previousBests = new MLMethod[numPops];
+            playerData.pops = new NEATPopulation[numPops];
+            for (int i=0; i<playerData.pops.length; i++) {
+                NEATPopulation pop = createPop(popSize);
+                playerData.pops[i] = pop;
+                EvolutionaryAlgorithm train; //Create training
+                train = NEATUtil.constructNEATTrainer(pop, new PlayerScoreRandom());
+                train.iteration();
+
+                playerData.previousBests[i] = train.getCODEC().decode(pop.getBestGenome());
+            }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -70,15 +85,16 @@ public class MainTrain {
 
     public static NEATPopulation createPop(int size) { //Generate a template population
         int inputNeurons = 9;
-        int outputNeurons = 9;
+        int outputNeurons = 10;
         NEATPopulation network = new NEATPopulation(inputNeurons, outputNeurons, size);
         network.reset();
         return network;
     }
 
-    private static void trainIterationA() {
+    private static void trainIteration(int i) {
         NEATPopulation pop;
-        pop = createPop(popSize); //Create population
+         //Create population
+        pop = playerData.pops[i];
 
         EvolutionaryAlgorithm train; //Create training
         train = NEATUtil.constructNEATTrainer(pop, new PlayerScore(playerData.previousBests));
@@ -94,11 +110,12 @@ public class MainTrain {
 
         //Check if better
         System.out.println("Competitive - " + " Opponents: " + playerData.previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
-
-        playerData.previousBests = append(playerData.previousBests, train.getCODEC().decode(pop.getBestGenome()));
+        playerData.pops[i] = pop;
+        playerData.previousBests[i] = train.getCODEC().decode(pop.getBestGenome());
         NeuralPlayerRandom npr = new NeuralPlayerRandom((NEATNetwork) train.getCODEC().decode(pop.getBestGenome()));
         System.out.println(npr.scorePlayer());
-        playerData.bestFitness = (int)train.getError();
+
+        //playerData.bestFitness = (int)train.getError();
         //playerData.previousBests = limitLength(playerData.previousBests, 20);
 
         train.finishTraining();

@@ -158,9 +158,12 @@ public class TicTacToeGame {
     }
 
     public int getMoveNN(NEATNetwork network, int[] board) {
+        int[] boardDataWPlayer = new int[board.length+1];
+        for (int i=0; i< board.length; i++)
+            boardDataWPlayer[i] = board[i];
+        boardDataWPlayer[boardDataWPlayer.length-1] = playerTurn;
 
-
-        MLData boardData = new BasicMLData(toDoubleArray(board));
+        MLData boardData = new BasicMLData(toDoubleArray(boardDataWPlayer));
         MLData moveData = network.compute(boardData);
 
         int indexOfHighestValue    =  0 ;
