@@ -19,9 +19,18 @@ public class NeuralPlayer {
     public int scorePlayer() {
         int n = 0;
         for (int i = 0; i < this.opponents.length; i++) {
-            n += this.playGame(this.network, this.opponents[i]) + this.playGame(this.opponents[i], this.network)*-1;
+            n += wl(this.playGame(this.network, this.opponents[i]),1 );
+            n -= wl(this.playGame(this.opponents[i], this.network),-1);
         }
         return n;
+    }
+
+    //Make a loss take 3 points instead of 1
+    private int wl (int gameResult, int player) {
+        if (gameResult == player*-1)
+            return gameResult*3;
+        else
+            return gameResult;
     }
 
     private int playGame(NEATNetwork network1, NEATNetwork network2) {
