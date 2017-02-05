@@ -18,7 +18,7 @@ public class NeuralPlayerRandom {
         for (int i=0; i<100; i++) {
             n += this.doIterationA() + this.doIterationB();
         }
-        return n/2;
+        return n;
     }
 
     public int doIterationA() {
