@@ -35,17 +35,7 @@ public class MainTrain {
     public static void main(String[] args) {
         readFiles();
         //Train
-        while (true) {
-            System.out.println("\nEpoch: " + playerData.epoch);
-            for (; playerData.i<playerData.pops.length; playerData.i++) {
-                trainIteration(playerData.i);
-                System.out.println("Iteration " + playerData.i + " done!!");
-                writeFiles();
-
-            }
-            playerData.i = 0;
-            playerData.epoch++;
-        }
+        actuallyTrain();
     }
 
     public static void readFiles() {
@@ -58,17 +48,6 @@ public class MainTrain {
             //When nothing found
             playerData = new TrainingData();
             playerData.reset();
-            playerData.previousBests = new MLMethod[numPops];
-            playerData.pops = new NEATPopulation[numPops];
-            for (int i=0; i<playerData.pops.length; i++) {
-                NEATPopulation pop = createPop(popSize);
-                playerData.pops[i] = pop;
-                EvolutionaryAlgorithm train; //Create training
-                train = NEATUtil.constructNEATTrainer(pop, new PlayerScoreRandom());
-                train.iteration();
-
-                playerData.previousBests[i] = train.getCODEC().decode(pop.getBestGenome());
-            }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -94,37 +73,27 @@ public class MainTrain {
         return network;
     }
 
-    private static void trainIteration(int i) {
+    private static void actuallyTrain() {
         NEATPopulation pop;
         //Create population
         pop = createPop(popSize);
 
         EvolutionaryAlgorithm train; //Create training
-        train = NEATUtil.constructNEATTrainer(pop, new PlayerScore(playerData.previousBests));
-
-        if (train.getPopulation().size() < 5)
-            train.setPopulation(createPop(popSize));
-
-        OriginalNEATSpeciation speciation = new OriginalNEATSpeciation();
-        train.setSpeciation(speciation);
+        train = NEATUtil.constructNEATTrainer(pop, new PlayerScoreRandom());
 
         //Train to beat
-        do {
+        while (true) {
             train.iteration();
-            System.out.print(train.getError() + " ");
-        } while (train.getError() < playerData.bestFitness-1);
-        System.out.println("Done, "+numExtraRounds+" rounds remain");
-        for (int j=0; j<numExtraRounds; j++) {
-            train.iteration();
-        }
-        System.out.println(train.getError());
+            playerData.pop = pop;
+            playerData.best = (MLMethod) train.getCODEC().decode(pop.getBestGenome());
+            playerData.epoch++;
 
-        //Check if better
-        System.out.println("Competitive - " + " Opponents: " + playerData.previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
-        playerData.pops[i] = pop;
-        playerData.previousBests[i] = train.getCODEC().decode(pop.getBestGenome());
-        playerData.bestFitness = (int) train.getError();
-        train.finishTraining();
+            NeuralPlayerRandom testScore = new NeuralPlayerRandom((NEATNetwork) playerData.best);
+            playerData.bestFitness = testScore.scorePlayer();
+
+            System.out.println("Epoch "+playerData.epoch+" Score: "+playerData.bestFitness);
+            writeFiles();
+        }
     }
 
     private static MLMethod[] append(MLMethod[] oldArray, MLMethod toAppend) {
