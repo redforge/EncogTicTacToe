@@ -16,15 +16,15 @@ import java.util.Random;
  */
 public class CheckersGame extends JFrame {
     private GameBoard board;
-    public RedPlayer redPlayer;
-    public BluePlayer bluePlayer;
+    private RedPlayer redPlayer;
+    private BluePlayer bluePlayer;
 
     private JButton start = new JButton("Start");
     private JButton startGUI = new JButton("Graphical Start");
 
     private boolean isBlueTurn = true;
 
-    public int winner = -2;
+    private int winner = -2;
     private int redGamesWon = 0;
     private int blueGamesWon = 0;
 
@@ -45,7 +45,7 @@ public class CheckersGame extends JFrame {
         setVisible(true);
     }
 
-    public void initializeGame() {
+    private void initializeGame() {
         winner = -2;
         redGamesWon = 0;
         blueGamesWon = 0;

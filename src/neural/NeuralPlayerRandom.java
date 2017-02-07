@@ -1,4 +1,4 @@
-/**
+package neural; /**
  * Created by ethanm on 1/25/17.
  */
 
@@ -26,11 +26,11 @@ public class NeuralPlayerRandom {
 
         CheckersGame game = new CheckersGame();
         game.initializeGame();
-        game.bluePlayer.setNetwork(this.network);
+        game.getBluePlayer().setNetwork(this.network);
         for (int i = 0; i < 9; i++)
-            if (game.winner == -2)
+            if (game.getWinner() == -2)
                 game.turn();
-        return game.winner;
+        return game.getWinner();
     }
 }
 

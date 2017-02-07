@@ -1,10 +1,6 @@
+package neural;
+
 import org.encog.ml.MLMethod;
-import org.encog.ml.ea.genome.Genome;
-import org.encog.ml.ea.rules.ConstraintRule;
-import org.encog.ml.ea.rules.RewriteRule;
-import org.encog.ml.ea.rules.RuleHolder;
-import org.encog.neural.neat.training.species.OriginalNEATSpeciation;
-import org.encog.neural.networks.BasicNetwork;
 
 import org.encog.ml.ea.train.EvolutionaryAlgorithm;
 import org.encog.neural.neat.NEATNetwork;
@@ -17,7 +13,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
-import java.util.List;
 
 
 /**
@@ -66,7 +61,7 @@ public class MainTrain {
     }
 
     public static NEATPopulation createPop(int size) { //Generate a template population
-        int inputNeurons = 9;
+        int inputNeurons = 32;
         int outputNeurons = 10;
         NEATPopulation network = new NEATPopulation(inputNeurons, outputNeurons, size);
         network.reset();

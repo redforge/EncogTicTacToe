@@ -1,3 +1,5 @@
+package neural;
+
 import org.encog.ml.MLMethod;
 import org.encog.neural.neat.NEATPopulation;
 import org.encog.neural.networks.BasicNetwork;

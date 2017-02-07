@@ -1,7 +1,8 @@
+package neural;
+
 import org.encog.ml.CalculateScore;
 import org.encog.ml.MLMethod;
 import org.encog.neural.neat.NEATNetwork;
-import org.encog.neural.networks.BasicNetwork;
 
 
 /**

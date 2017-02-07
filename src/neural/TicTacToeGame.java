@@ -1,3 +1,4 @@
+package neural;
 
 import org.encog.neural.neat.NEATNetwork;
 import org.encog.neural.networks.BasicNetwork;
