@@ -3,6 +3,7 @@ import org.encog.ml.ea.genome.Genome;
 import org.encog.ml.ea.rules.ConstraintRule;
 import org.encog.ml.ea.rules.RewriteRule;
 import org.encog.ml.ea.rules.RuleHolder;
+import org.encog.ml.ea.species.Species;
 import org.encog.neural.neat.training.species.OriginalNEATSpeciation;
 import org.encog.neural.networks.BasicNetwork;
 
@@ -88,10 +89,11 @@ public class MainTrain {
         train.setSpeciation(speciation);
 
         //Train to beat
+        PlayerScore score = new PlayerScore(playerData.previousBests);
         do {
             train.iteration();
             System.out.print(":" +train.getError() + " ");
-        } while (train.getError() < playerData.bestFitness);
+        } while (score.calculateScore(ghettoGetBestGenome(pop, train)) < playerData.bestFitness);
 
         System.out.println("Normal training done. " + extraGens + " rounds remain");
         for (int i = 0; i < extraGens; i++) {
@@ -106,13 +108,40 @@ public class MainTrain {
         System.out.println("Competitive - " + " Opponents: " + playerData.previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
 
         //Output a random score
-        NeuralPlayerRandom npr = new NeuralPlayerRandom((NEATNetwork) train.getCODEC().decode(pop.getBestGenome()));
+        NeuralPlayerRandom npr = new NeuralPlayerRandom((NEATNetwork) ghettoGetBestGenome(pop, train));
         System.out.println(npr.scorePlayer());
-
-        playerData.previousBests = append(playerData.previousBests, train.getCODEC().decode(pop.getBestGenome()));
+        {
+            PlayerScore testScore = new PlayerScore(playerData.previousBests);
+            System.out.println(testScore.calculateScore(ghettoGetBestGenome(pop, train)));
+        }
+        playerData.previousBests = append(playerData.previousBests, ghettoGetBestGenome(pop, train));
 
         playerData.bestFitness = (int)train.getError();
 
+    }
+
+    private static MLMethod ghettoGetBestGenome(NEATPopulation pop, EvolutionaryAlgorithm train) {
+        MLMethod bestNet = null;
+        int bestFitness = -100;
+        PlayerScore testScore = new PlayerScore(playerData.previousBests);
+        List<Species> speciesList = pop.getSpecies();
+
+        for (int i=0; i<speciesList.size(); i++) {
+            List<Genome> genomeList = speciesList.get(i).getMembers();
+
+            if(genomeList.size() > 0) {
+                for (int j=0; j<genomeList.size(); j++) {
+                    MLMethod currentMethod = train.getCODEC().decode(genomeList.get(j));
+                    int currentFitness = (int) testScore.calculateScore(currentMethod);
+
+                    if (currentFitness > bestFitness) {
+                        bestNet = currentMethod;
+                        bestFitness = currentFitness;
+                    }
+                }
+            }
+        }
+        return bestNet;
     }
 
     private static MLMethod[] append(MLMethod[] oldArray, MLMethod toAppend) {
