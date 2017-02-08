@@ -16,12 +16,13 @@ public class PlayerScore implements CalculateScore {
     @Override
     public double calculateScore(MLMethod network) {
         //Cast opponents
-        NEATNetwork[] opponentsCast = new NEATNetwork[opponents.length];
-        for (int i=0; i<opponents.length; i++)
-            opponentsCast[i] = (NEATNetwork) opponents[i];
+        NEATNetwork[] opponentsCast = new NEATNetwork[this.opponents.length];
+        for (int i=0; i<this.opponents.length; i++)
+            opponentsCast[i] = (NEATNetwork) this.opponents[i];
         //Make player
         NeuralPlayer player = new NeuralPlayer((NEATNetwork) network, opponentsCast);
         //Score player
+        //System.out.print(player.scorePlayer() + " ");
         return player.scorePlayer();
     }
 
@@ -32,7 +33,7 @@ public class PlayerScore implements CalculateScore {
 
     @Override
     public boolean requireSingleThreaded() {
-        return true;
+        return false;
     }
 }
 

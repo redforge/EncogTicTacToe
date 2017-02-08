@@ -16,7 +16,8 @@ public class NeuralPlayerRandom {
     public int scorePlayer() {
         int n = 0;
         for (int i=0; i<100; i++) {
-            n += this.doIterationA() + this.doIterationB();
+            n += this.doIterationA();
+            n -= this.doIterationB();
         }
         return n/2;
     }
@@ -38,7 +39,7 @@ public class NeuralPlayerRandom {
         for(int i = 0; i<9;i++)
             if(game.winner ==-2)
                 game.turnR2(this.network);
-        return -game.winner;
+        return game.winner;
     }
 }
 

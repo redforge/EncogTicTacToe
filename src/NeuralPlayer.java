@@ -19,16 +19,16 @@ public class NeuralPlayer {
     public int scorePlayer() {
         int n = 0;
         for (int i = 0; i < this.opponents.length; i++) {
-            n += wl(this.playGame(this.network, this.opponents[i]),1 );
-            n -= wl(this.playGame(this.opponents[i], this.network),-1);
+            n += this.playGame(this.network, this.opponents[i]);
+            n -= this.playGame(this.opponents[i], this.network);
         }
+        //System.out.print(n + " '");
         return n;
     }
 
-    //Make a loss take 3 points instead of 1
     private int wl (int gameResult, int player) {
         if (gameResult == player*-1)
-            return gameResult*3;
+            return gameResult*5;
         else
             return gameResult;
     }

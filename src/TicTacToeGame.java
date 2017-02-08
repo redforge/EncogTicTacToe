@@ -103,13 +103,6 @@ public class TicTacToeGame {
         this.turns++;
     }
 
-    public int[] invert(int[] array) {
-        int[] out = array;
-        for (int i=0; i<out.length; i++)
-            out[i] *= -1;
-        return out;
-    }
-
     public void initializeGame() {
         //Initialize board
         for (int i = 0; i < this.board.length; i++)
@@ -158,12 +151,12 @@ public class TicTacToeGame {
     }
 
     public int getMoveNN(NEATNetwork network, int[] board) {
-        int[] boardDataWPlayer = new int[board.length+1];
-        for (int i=0; i< board.length; i++)
-            boardDataWPlayer[i] = board[i];
-        boardDataWPlayer[boardDataWPlayer.length-1] = playerTurn;
+        int[] boardThing = new int[board.length + 1];
+        for (int i=0; i<board.length; i++)
+            boardThing[i] = board[i];
+        boardThing[board.length] = playerTurn;
 
-        MLData boardData = new BasicMLData(toDoubleArray(boardDataWPlayer));
+        MLData boardData = new BasicMLData(toDoubleArray(boardThing));
         MLData moveData = network.compute(boardData);
 
         int indexOfHighestValue    =  0 ;
@@ -279,7 +272,7 @@ public class TicTacToeGame {
             //drawBoard(this.board);
         }
         this.board[i] = player;
-        this.boardInverted[i] = -player;
+        this.boardInverted[i] = player*-1;
         bd(i);
 
     }
