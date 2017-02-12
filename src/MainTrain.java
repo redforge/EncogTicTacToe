@@ -79,6 +79,7 @@ public class MainTrain {
     }
 
     private static void trainIteration() {
+
         NEATPopulation pop;
         pop = createPop(popSize); //Create population
 
@@ -92,8 +93,8 @@ public class MainTrain {
         PlayerScore score = new PlayerScore(playerData.previousBests);
         do {
             train.iteration();
-            System.out.print(":" +train.getError() + " ");
-        } while (score.calculateScore(ghettoGetBestGenome(pop, train)) < playerData.bestFitness);
+            System.out.print(":" +score.calculateScore(customGetBestGenome(pop, train)) + " ");
+        } while (score.calculateScore(customGetBestGenome(pop, train)) < playerData.bestFitness);
 
         System.out.println("Normal training done. " + extraGens + " rounds remain");
         for (int i = 0; i < extraGens; i++) {
@@ -108,19 +109,21 @@ public class MainTrain {
         System.out.println("Competitive - " + " Opponents: " + playerData.previousBests.length + " Score:" + train.getError() + " Population size: " + popSize);
 
         //Output a random score
-        NeuralPlayerRandom npr = new NeuralPlayerRandom((NEATNetwork) ghettoGetBestGenome(pop, train));
-        System.out.println(npr.scorePlayer());
+
         {
             PlayerScore testScore = new PlayerScore(playerData.previousBests);
-            System.out.println(testScore.calculateScore(ghettoGetBestGenome(pop, train)));
+            System.out.println(testScore.calculateScore(customGetBestGenome(pop, train)));
         }
-        playerData.previousBests = append(playerData.previousBests, ghettoGetBestGenome(pop, train));
-
+        playerData.previousBests = append(playerData.previousBests, customGetBestGenome(pop, train));
+        {
+            NeuralPlayerRandom npr = new NeuralPlayerRandom((NEATNetwork) playerData.previousBests[playerData.previousBests.length-1]);
+            System.out.println(npr.scorePlayer());
+        }
         playerData.bestFitness = (int)train.getError();
 
     }
 
-    private static MLMethod ghettoGetBestGenome(NEATPopulation pop, EvolutionaryAlgorithm train) {
+    private static MLMethod customGetBestGenome(NEATPopulation pop, EvolutionaryAlgorithm train) {
         MLMethod bestNet = null;
         int bestFitness = -100;
         PlayerScore testScore = new PlayerScore(playerData.previousBests);

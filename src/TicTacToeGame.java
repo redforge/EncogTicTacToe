@@ -150,11 +150,11 @@ public class TicTacToeGame {
         return i;
     }
 
-    public int getMoveNN(NEATNetwork network, int[] board) {
-        int[] boardThing = new int[board.length + 1];
-        for (int i=0; i<board.length; i++)
-            boardThing[i] = board[i];
-        boardThing[board.length] = playerTurn;
+    public int getMoveNN(NEATNetwork network, int[] boardArg) {
+        int[] boardThing = new int[boardArg.length + 1];
+        for (int i=0; i<boardArg.length; i++)
+            boardThing[i] = boardArg[i];
+        boardThing[boardArg.length] = playerTurn;
 
         MLData boardData = new BasicMLData(toDoubleArray(boardThing));
         MLData moveData = network.compute(boardData);
@@ -303,6 +303,3 @@ public class TicTacToeGame {
         return (n==0 || n==1);
     }
 }
-
-
-

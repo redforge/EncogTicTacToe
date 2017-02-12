@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c4af228-92a0-4aba-b604-1fa546305cb0" name="Default" comment="Now same net for both players">
+    <list default="true" id="8c4af228-92a0-4aba-b604-1fa546305cb0" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/training-data.td" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/MainTrain.class" afterPath="$PROJECT_DIR$/out/production/Genetic TicTacToe/MainTrain.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/NeuralPlayer.class" afterPath="$PROJECT_DIR$/out/production/Genetic TicTacToe/NeuralPlayer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/NeuralPlayerRandom.class" afterPath="$PROJECT_DIR$/out/production/Genetic TicTacToe/NeuralPlayerRandom.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/PlayVsNN.class" afterPath="$PROJECT_DIR$/out/production/Genetic TicTacToe/PlayVsNN.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/PlayerScore.class" afterPath="$PROJECT_DIR$/out/production/Genetic TicTacToe/PlayerScore.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/PlayerScoreRandom.class" afterPath="$PROJECT_DIR$/out/production/Genetic TicTacToe/PlayerScoreRandom.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/TicTacToeGame.class" afterPath="$PROJECT_DIR$/out/production/Genetic TicTacToe/TicTacToeGame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genetic TicTacToe/TrainingData.class" afterPath="$PROJECT_DIR$/out/production/Genetic TicTacToe/TrainingData.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainTrain.java" afterPath="$PROJECT_DIR$/src/MainTrain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuralPlayerRandom.java" afterPath="$PROJECT_DIR$/src/NeuralPlayerRandom.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlayVsNN.java" afterPath="$PROJECT_DIR$/src/PlayVsNN.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TicTacToeGame.java" afterPath="$PROJECT_DIR$/src/TicTacToeGame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,53 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainTrain.java" pinned="false" current-in-tab="true">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_EncogTicTacToe-master.zip/EncogTicTacToe-master/src/MainTrain.java">
+      <file leaf-file-name="PlayerScore.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PlayerScore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayVsNN.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PlayVsNN.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ObjectInputStream.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/io/ObjectInputStream.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39304">
-              <caret line="2361" column="13" lean-forward="false" selection-start-line="2361" selection-start-column="13" selection-end-line="2363" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NEATNetwork.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/encog-core-3.3.0.jar!/org/encog/neural/neat/NEATNetwork.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Random.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/util/Random.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2822">
-              <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -79,34 +47,9 @@
       <file leaf-file-name="TrainingData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TrainingData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="85">
+              <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerScore.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PlayerScore.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TicTacToeGame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TicTacToeGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="54" column="48" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-              <folding>
-                <element signature="method#turnHuman#0;class#TicTacToeGame#0" expanded="false" />
-                <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-                <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
-                <element signature="method#toDoubleArray#0;class#TicTacToeGame#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -114,9 +57,22 @@
       <file leaf-file-name="NeuralPlayer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NeuralPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="37" column="34" lean-forward="false" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
+            <state relative-caret-position="374">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainTrain.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MainTrain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="466">
+              <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1486671270928" expanded="true" signature="5125:5132" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,9 +97,13 @@
       <find>this.playerTurn</find>
       <find>playerTurn</find>
       <find>this.board[</find>
+      <find>ghetto</find>
+      <find>Sys</find>
+      <find>Syste</find>
     </findStrings>
     <replaceStrings>
       <replace>this.isMoveValid</replace>
+      <replace>custom</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -172,16 +132,24 @@
         <option value="$PROJECT_DIR$/src/boop/NeuralPlayer.java" />
         <option value="$PROJECT_DIR$/src/boop/PlayerScore.java" />
         <option value="$PROJECT_DIR$/src/TestRun.java" />
-        <option value="$PROJECT_DIR$/src/PlayerScoreRandom.java" />
-        <option value="$PROJECT_DIR$/src/PlayerScore2.java" />
-        <option value="$PROJECT_DIR$/src/NeuralPlayerRandom.java" />
-        <option value="$PROJECT_DIR$/src/TicTacToeGame.java" />
-        <option value="$PROJECT_DIR$/src/PlayVsNN.java" />
         <option value="$PROJECT_DIR$/src/TrainingData.java" />
+        <option value="$PROJECT_DIR$/src/PlayVsNN.java" />
+        <option value="$PROJECT_DIR$/src/PlayerScore2.java" />
         <option value="$PROJECT_DIR$/src/PlayerScore.java" />
-        <option value="$PROJECT_DIR$/src/NeuralPlayer.java" />
+        <option value="$PROJECT_DIR$/src/PlayerScoreRandom.java" />
+        <option value="$PROJECT_DIR$/src/NEATPopulationPatched.java" />
+        <option value="$PROJECT_DIR$/src/NeuralPlayerRandom.java" />
         <option value="$PROJECT_DIR$/src/MainTrain.java" />
-        <option value="$USER_HOME$/AppData/Local/Temp/Temp1_EncogTicTacToe-master.zip/EncogTicTacToe-master/src/MainTrain.java" />
+        <option value="$PROJECT_DIR$/src/TicTacToeGame.java" />
+        <option value="$PROJECT_DIR$/src/NeuralPlayer.java" />
+        <option value="$PROJECT_DIR$/src/MainTrain2nets.java" />
+        <option value="$PROJECT_DIR$/src/twoNets/TrainingData.java" />
+        <option value="$PROJECT_DIR$/src/twoNets/NeuralPlayerRandom.java" />
+        <option value="$PROJECT_DIR$/src/twoNets/PlayerScoreRandom.java" />
+        <option value="$PROJECT_DIR$/src/twoNets/MainTrain2nets.java" />
+        <option value="$PROJECT_DIR$/src/twoNets/PlayerScore.java" />
+        <option value="$PROJECT_DIR$/src/twoNets/NeuralPlayer.java" />
+        <option value="$PROJECT_DIR$/src/twoNets/TicTacToeGame.java" />
       </list>
     </option>
   </component>
@@ -222,8 +190,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -252,19 +219,21 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/EncogTicTacToe-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EncogTicTacToe - 2nets feb 9" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/Ethan/Google Drive/Code/IdeaProjects/EncogTicTacToe/src/TicTacToeGame.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="twoNets" />
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -272,7 +241,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PlayVsNN">
+  <component name="RunManager" selected="Application.MainTrain">
     <configuration default="false" name="MainTrain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="MainTrain" />
@@ -306,6 +275,21 @@
     <configuration default="false" name="PlayVsNN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="PlayVsNN" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Genetic TicTacToe" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MainTrain2nets" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="twoNets.MainTrain2nets" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -460,16 +444,18 @@
       <listeners />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.MainTrain" />
       <item index="1" class="java.lang.String" itemvalue="Application.TestRun" />
       <item index="2" class="java.lang.String" itemvalue="Application.PlayVsNN" />
+      <item index="3" class="java.lang.String" itemvalue="Application.MainTrain2nets" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.PlayVsNN" />
-        <item index="1" class="java.lang.String" itemvalue="Application.MainTrain" />
-        <item index="2" class="java.lang.String" itemvalue="Application.TestRun" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Application.MainTrain" />
+        <item index="1" class="java.lang.String" itemvalue="Application.MainTrain2nets" />
+        <item index="2" class="java.lang.String" itemvalue="Application.PlayVsNN" />
+        <item index="3" class="java.lang.String" itemvalue="Application.TestRun" />
       </list>
     </recent_temporary>
   </component>
@@ -487,124 +473,58 @@
       <option name="presentableId" value="Default" />
       <updated>1485361746432</updated>
     </task>
-    <task id="LOCAL-00001" summary="Now same net for both players">
-      <created>1486226717217</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1486226717217</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.4914712" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2809829" sideWeight="0.27238807" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2361111" sideWeight="0.72761196" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20842217" sideWeight="0.4947994" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22121535" sideWeight="0.4947994" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24926254" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3107676" sideWeight="0.50520056" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.4914712" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3985043" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="100" y="123" width="1240" height="673" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24358974" sideWeight="0.72761196" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3985043" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Now same net for both players" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now same net for both players" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="50" />
+      <option name="time" value="52" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="this" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/TicTacToeGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="50" column="29" lean-forward="false" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
-          <folding>
-            <element signature="method#turnHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#toDoubleArray#0;class#TicTacToeGame#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerScore.java" />
-    <entry file="file://$PROJECT_DIR$/src/TestRun.java" />
-    <entry file="file://$PROJECT_DIR$/src/MainTrain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="68" column="1" lean-forward="true" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerScoreRandom.java" />
-    <entry file="file://$PROJECT_DIR$/src/NeuralPlayer.java" />
-    <entry file="file://$PROJECT_DIR$/src/TicTacToeGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="55" column="32" lean-forward="true" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
-          <folding>
-            <element signature="method#turnHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#toDoubleArray#0;class#TicTacToeGame#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerScore.java" />
-    <entry file="file://$PROJECT_DIR$/src/TestRun.java" />
     <entry file="file://$PROJECT_DIR$/src/MainTrain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1486671270928" expanded="true" signature="5125:5132" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -614,12 +534,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="44" column="5" lean-forward="false" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-          <folding>
-            <element signature="method#turnHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#toDoubleArray#0;class#TicTacToeGame#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -631,6 +545,7 @@
           <caret line="49" column="30" lean-forward="false" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1486671270928" expanded="true" signature="5125:5132" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -640,12 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#turnHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#toDoubleArray#0;class#TicTacToeGame#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -657,6 +566,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1486671270928" expanded="true" signature="5125:5132" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -666,12 +576,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2074">
           <caret line="148" column="31" lean-forward="false" selection-start-line="148" selection-start-column="31" selection-end-line="148" selection-end-column="31" />
-          <folding>
-            <element signature="method#turnHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#toDoubleArray#0;class#TicTacToeGame#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -683,6 +587,7 @@
           <caret line="58" column="1" lean-forward="false" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1486671270928" expanded="true" signature="5125:5132" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -741,105 +646,110 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlayerScore2.java" />
-    <entry file="file://$PROJECT_DIR$/src/PlayerScoreRandom.java">
+    <entry file="jar://$PROJECT_DIR$/encog-core-3.3.0.jar!/org/encog/ml/MLMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/encog-core-3.3.0.jar!/org/encog/ml/ea/genome/Genome.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NeuralPlayerRandom.java">
+    <entry file="jar://$PROJECT_DIR$/encog-core-3.3.0.jar!/org/encog/ml/ea/population/BasicPopulation.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+        <state relative-caret-position="731">
+          <caret line="59" column="5" lean-forward="false" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/util/Random.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2822">
-          <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NEATPopulationPatched.java" />
     <entry file="jar://$PROJECT_DIR$/encog-core-3.3.0.jar!/org/encog/neural/neat/NEATNetwork.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/io/ObjectInputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39304">
-          <caret line="2361" column="13" lean-forward="false" selection-start-line="2361" selection-start-column="13" selection-end-line="2363" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlayVsNN.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+        <state relative-caret-position="442">
+          <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerScoreRandom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NeuralPlayerRandom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="59" column="5" lean-forward="false" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TicTacToeGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2159">
+          <caret line="151" column="0" lean-forward="false" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TrainingData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerScore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="85">
+          <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NeuralPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="37" column="34" lean-forward="false" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
+        <state relative-caret-position="374">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TicTacToeGame.java">
+    <entry file="file://$PROJECT_DIR$/src/PlayerScore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="54" column="48" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <element signature="method#turnHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#getMoveHuman#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#isWinning#0;class#TicTacToeGame#0" expanded="false" />
-            <element signature="method#toDoubleArray#0;class#TicTacToeGame#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/twoNets/TrainingData.java" />
+    <entry file="file://$PROJECT_DIR$/src/twoNets/PlayerScoreRandom.java" />
+    <entry file="file://$PROJECT_DIR$/src/twoNets/NeuralPlayerRandom.java" />
+    <entry file="file://$PROJECT_DIR$/src/twoNets/PlayerScore.java" />
+    <entry file="file://$PROJECT_DIR$/src/twoNets/TicTacToeGame.java" />
+    <entry file="file://$PROJECT_DIR$/src/twoNets/NeuralPlayer.java" />
+    <entry file="file://$PROJECT_DIR$/src/twoNets/MainTrain2nets.java" />
     <entry file="file://$PROJECT_DIR$/src/MainTrain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1207">
-          <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        <state relative-caret-position="466">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_EncogTicTacToe-master.zip/EncogTicTacToe-master/src/MainTrain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1486671270928" expanded="true" signature="5125:5132" ph="{...}" />
           </folding>
         </state>
       </provider>

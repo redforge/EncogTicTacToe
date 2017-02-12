@@ -25,7 +25,7 @@ public class PlayVsNN {
         ObjectInputStream in;
         try {
             //Read best network
-            in = new ObjectInputStream(new FileInputStream("training-data.td"));
+            in = new ObjectInputStream(new FileInputStream("training-data2.td"));
             TrainingData td = (TrainingData) in.readObject();
             networkMLM = td.previousBests[td.previousBests.length-1];
         } catch (IOException | ClassNotFoundException e) {
