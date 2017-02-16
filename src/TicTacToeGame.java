@@ -24,6 +24,9 @@ public class TicTacToeGame {
     public int playerTurn = 1;
     public int turns = 0;
 
+    private int randMoves = 0;
+    private int realMoves = 0;
+
     public String debugInfo = "";
 
     public void turnR(NEATNetwork network) {
@@ -34,11 +37,15 @@ public class TicTacToeGame {
             this.doMove(-1, this.getMoveRandom());
 
         //Check if its winning move
-        if (this.isWinning(this.playerTurn, this.board))
+        if (this.isWinning(this.playerTurn, this.board)) {
             this.winner = this.playerTurn;
+            System.out.println(realMoves + " +/- " + randMoves + "  " + this.winner + "  R1 ");
+        }
         //Check if its a draw
-        if (this.turns >= 8 && this.winner == -2)
+        if (this.turns >= 8 && this.winner == -2) {
+            System.out.println(realMoves + " +/- " + randMoves + "  " + this.winner + "  R1 ");
             this.winner = 0;
+        }
 
         this.playerTurn *= -1;
         this.turns++;
@@ -52,12 +59,15 @@ public class TicTacToeGame {
             this.doMove(-1, this.getMoveNN(network, this.boardInverted));
 
         //Check if its winning move
-        if (this.isWinning(this.playerTurn, this.board))
+        if (this.isWinning(this.playerTurn, this.board)) {
+            System.out.println(realMoves + " +/- " + randMoves + "  " + this.winner + " R2  ");
             this.winner = this.playerTurn;
+        }
         //Check if its a draw
-        if (this.turns >= 8 && this.winner == -2)
+        if (this.turns >= 8 && this.winner == -2) {
+            System.out.println(realMoves + " +/- " + randMoves + "  " + this.winner+"  R2 ");
             this.winner = 0;
-
+        }
         this.playerTurn *= -1;
         this.turns++;
     }
@@ -86,18 +96,25 @@ public class TicTacToeGame {
         if (this.playerTurn == 1) {
             this.doMove(1, this.getMoveNN(network1, this.board));
             ds(this.playerTurn);
+            drawBoard();
 
         } else if (this.playerTurn == -1) {
             this.doMove(-1, this.getMoveNN(network2, this.boardInverted));
             ds(this.playerTurn);
+            drawBoard();
         }
 
         //Check if its winning move
-        if (this.isWinning(this.playerTurn, this.board))
+        if (this.isWinning(this.playerTurn, this.board)) {
             this.winner = this.playerTurn;
+            System.out.print(realMoves + " +/- " + randMoves + "  " + this.winner+"    ");
+        }
         //Check if its a draw
-        if (this.turns >= 8 && this.winner == -2)
+        if (this.turns >= 8 && this.winner == -2) {
             this.winner = 0;
+            System.out.print(realMoves + " +/- " + randMoves + "  " + this.winner +"   ");
+
+        }
 
         this.playerTurn *= -1;
         this.turns++;
@@ -206,10 +223,13 @@ public class TicTacToeGame {
             isFirstIteration = false;
 
             //If nothing was found, return first valid move
-            if(!foundAnything)
+            if(!foundAnything) {
+                randMoves++;
                 return this.getMoveFirst(board);
+            }
 
         } while (!this.isMoveValid(indexOfHighestValue));
+        realMoves++;
         return indexOfHighestValue;
     }
 
