@@ -27,6 +27,7 @@ public class MainTrain {
     private static TrainingData playerData;
     private static final int popSize = 50;
 
+
     public static void main(String[] args) {
         readFiles();
 

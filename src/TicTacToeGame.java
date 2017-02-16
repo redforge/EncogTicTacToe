@@ -103,6 +103,28 @@ public class TicTacToeGame {
         this.turns++;
     }
 
+    public void turn2(NEATNetwork network1, NEATNetwork network2) {
+        //Do Move
+        if (this.playerTurn == 1) {
+            this.doMove(1, this.getMoveNN(network2, this.board));
+            ds(this.playerTurn);
+
+        } else if (this.playerTurn == -1) {
+            this.doMove(-1, this.getMoveNN(network1, this.boardInverted));
+            ds(this.playerTurn);
+        }
+
+        //Check if its winning move
+        if (this.isWinning(this.playerTurn, this.board))
+            this.winner = this.playerTurn;
+        //Check if its a draw
+        if (this.turns >= 8 && this.winner == -2)
+            this.winner = 0;
+
+        this.playerTurn *= -1;
+        this.turns++;
+    }
+
     public void initializeGame() {
         //Initialize board
         for (int i = 0; i < this.board.length; i++)
