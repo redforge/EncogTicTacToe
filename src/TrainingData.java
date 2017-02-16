@@ -11,12 +11,10 @@ import java.io.Serializable;
 public class TrainingData implements Serializable{
     public int epoch;
     public int bestFitness;
-    public MLMethod[] previousBests;
     public NEATPopulation pop;
 
     public void reset() {
         this.epoch = 0;
         this.bestFitness = -100;
-        this.previousBests = new BasicNetwork[0];
     }
 }

@@ -26,9 +26,6 @@ public class PlayerScore implements CalculateScore {
         this.codec = train.getCODEC();
     }
 
-
-
-
     @Override
     public double calculateScore(MLMethod network) {
         MLMethod[] opponents = new MLMethod[0];
@@ -37,11 +34,8 @@ public class PlayerScore implements CalculateScore {
             Species species = pop.getSpecies().get(i);
             for (int j = 0; j < species.getMembers().size(); j++) {
                 opponents = append(opponents, this.codec.decode(species.getMembers().get(j)));
-
             }
         }
-
-
 
         //Cast opponents
         NEATNetwork[] opponentsCast = new NEATNetwork[opponents.length];

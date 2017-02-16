@@ -1,6 +1,7 @@
 import org.encog.ml.MLMethod;
 import org.encog.ml.ea.genome.Genome;
 import org.encog.ml.ea.species.Species;
+import org.encog.neural.neat.NEATNetwork;
 import org.encog.neural.neat.training.species.OriginalNEATSpeciation;
 
 import org.encog.ml.ea.train.EvolutionaryAlgorithm;
@@ -24,7 +25,7 @@ public class MainTrain {
     private static final int INT_LIMIT = 2147483647;
 
     private static TrainingData playerData;
-    private static final int popSize = 250;
+    private static final int popSize = 50;
 
     public static void main(String[] args) {
         readFiles();
@@ -76,8 +77,9 @@ public class MainTrain {
     private static void trainIteration() {
 
         //Set up training & Score
+        ShittyPopCopyThing popClone = new ShittyPopCopyThing(playerData.pop);//Set up training & Score
         EvolutionaryAlgorithm train; //Create training
-        PlayerScore trainingScore = new PlayerScore(playerData.pop);
+        PlayerScore trainingScore = new PlayerScore(popClone.getPop());
         train = NEATUtil.constructNEATTrainer(playerData.pop, trainingScore);
         OriginalNEATSpeciation speciation = new OriginalNEATSpeciation();
         train.setSpeciation(speciation);
@@ -91,8 +93,8 @@ public class MainTrain {
         testScore.setTrain(train);
         System.out.println("Competitive - " + " Score:" + testScore.calculateScore(customGetBestGenome(playerData.pop, testScore, train)) + " Population size: " + getPopSize(playerData.pop));
 
-        //Cleanup
-        train.finishTraining();
+        NeuralPlayerRandom npr = new NeuralPlayerRandom((NEATNetwork)customGetBestGenome(playerData.pop, testScore, train));
+        System.out.println(npr.scorePlayer());
     }
 
     private static int getPopSize(NEATPopulation pop) {
