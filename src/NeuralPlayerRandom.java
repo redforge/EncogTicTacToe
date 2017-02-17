@@ -13,6 +13,7 @@ public class NeuralPlayerRandom {
     private int losses2 = 0;
     private int ties2 = 0;
     private NEATNetwork network;
+    public boolean out = false;
 
     public NeuralPlayerRandom(NEATNetwork network) {
         this.network = network;
@@ -25,10 +26,13 @@ public class NeuralPlayerRandom {
             n += this.doIterationA();
             n -= this.doIterationB();
         }
-        System.out.println("RANDOM TEST");
-        System.out.println("RANDOM W1:" + wins + " T1:" + ties + " L1:" + losses );
-        System.out.println("RANDOM W2:" + wins2+ " T2:" + ties2+ " L2:" + losses2);
-        return n/2;
+        if (out) {
+            System.out.println("RANDOM TEST");
+            System.out.println("RANDOM W1:" + wins + " T1:" + ties + " L1:" + losses);
+            System.out.println("RANDOM W2:" + wins2 + " T2:" + ties2 + " L2:" + losses2);
+        }
+        return n;
+
     }
 
     public int doIterationA() {

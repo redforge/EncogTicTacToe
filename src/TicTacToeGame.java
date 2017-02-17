@@ -39,11 +39,11 @@ public class TicTacToeGame {
         //Check if its winning move
         if (this.isWinning(this.playerTurn, this.board)) {
             this.winner = this.playerTurn;
-            System.out.println(realMoves + " +/- " + randMoves + "  " + this.winner + "  R1 ");
+            //System.out.println(realMoves + " +/- " + randMoves + "  " + this.winner + "  R1 ");
         }
         //Check if its a draw
         if (this.turns >= 8 && this.winner == -2) {
-            System.out.println(realMoves + " +/- " + randMoves + "  " + this.winner + "  R1 ");
+            //System.out.println(realMoves + " +/- " + randMoves + "  " + this.winner + "  R1 ");
             this.winner = 0;
         }
 
@@ -60,12 +60,12 @@ public class TicTacToeGame {
 
         //Check if its winning move
         if (this.isWinning(this.playerTurn, this.board)) {
-            System.out.println(realMoves + " +/- " + randMoves + "  " + this.winner + " R2  ");
+            //System.out.println(realMoves + " +/- " + randMoves + "  " + this.winner + " R2  ");
             this.winner = this.playerTurn;
         }
         //Check if its a draw
         if (this.turns >= 8 && this.winner == -2) {
-            System.out.println(realMoves + " +/- " + randMoves + "  " + this.winner+"  R2 ");
+            //System.out.println(realMoves + " +/- " + randMoves + "  " + this.winner+"  R2 ");
             this.winner = 0;
         }
         this.playerTurn *= -1;
@@ -107,12 +107,12 @@ public class TicTacToeGame {
         //Check if its winning move
         if (this.isWinning(this.playerTurn, this.board)) {
             this.winner = this.playerTurn;
-            System.out.print(realMoves + " +/- " + randMoves + "  " + this.winner+"    ");
+            //System.out.print(realMoves + " +/- " + randMoves + "  " + this.winner+"    ");
         }
         //Check if its a draw
         if (this.turns >= 8 && this.winner == -2) {
             this.winner = 0;
-            System.out.print(realMoves + " +/- " + randMoves + "  " + this.winner +"   ");
+            //System.out.print(realMoves + " +/- " + randMoves + "  " + this.winner +"   ");
 
         }
 

@@ -1,6 +1,7 @@
 import org.encog.ml.MLMethod;
 import org.encog.ml.ea.genome.Genome;
 import org.encog.ml.ea.species.Species;
+import org.encog.ml.train.MLTrain;
 import org.encog.neural.neat.NEATNetwork;
 import org.encog.neural.neat.training.species.OriginalNEATSpeciation;
 
@@ -27,8 +28,25 @@ public class MainTrain {
     private static TrainingData playerData;
     private static final int popSize = 50;
 
-
     public static void main(String[] args) {
+        EvolutionaryAlgorithm train;
+        PlayerScoreRandom trainingScore = new PlayerScoreRandom();
+        train = NEATUtil.constructNEATTrainer(createPop(100), trainingScore);
+        OriginalNEATSpeciation speciation = new OriginalNEATSpeciation();
+        train.setSpeciation(speciation);
+
+        int epoch = 0;
+        while (true) {
+            train.iteration();
+            System.out.println("Epoch "+epoch+" Error:"+train.getError());
+
+            NeuralPlayerRandom npr = new NeuralPlayerRandom((NEATNetwork)train.getCODEC().decode(train.getBestGenome()));
+            npr.out = true;
+            npr.scorePlayer();
+
+        }
+    }
+    public static void main2(String[] args) {
         readFiles();
 
         //Train
@@ -68,7 +86,7 @@ public class MainTrain {
     }
 
     public static NEATPopulation createPop(int size) { //Generate a template population
-        int inputNeurons = 10;
+        int inputNeurons = 9;
         int outputNeurons = 9;
         NEATPopulation network = new NEATPopulation(inputNeurons, outputNeurons, size);
         network.reset();
